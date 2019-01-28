@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
+    <title><![CDATA[01-28-2019打卡]]></title>
     <url>%2F2019%2F01%2F28%2F01-28-2019%E6%89%93%E5%8D%A1%2F</url>
-    <content type="text"><![CDATA[今天主要的事是情系雅礼蓝宣讲，以及下午和晚上的娱乐活动🤣🤣🤣 待会还可以背背单词🤔]]></content>
+    <content type="text"><![CDATA[今天主要的事是情系雅礼蓝宣讲，以及下午和晚上的娱乐活动🤣🤣🤣待会还可以背背单词🤔]]></content>
+      <categories>
+        <category>-学习</category>
+      </categories>
+      <tags>
+        <tag>-打卡</tag>
+      </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>%2F2019%2F01%2F28%2F01-27-2019%E6%89%93%E5%8D%A1%2F</url>
-    <content type="text"><![CDATA[数分 略刷了一点题。 Python 基本数据类型和部分相关函数。 TOEFL 流利阅读打卡。]]></content>
+    <title><![CDATA[01-27-2019打卡]]></title>
+    <url>%2F2019%2F01%2F27%2F01-27-2019%E6%89%93%E5%8D%A1%2F</url>
+    <content type="text"><![CDATA[数分略刷了一点题。 Python基本数据类型和部分相关函数。 TOEFL流利阅读打卡。]]></content>
+      <categories>
+        <category>-学习</category>
+      </categories>
+      <tags>
+        <tag>-打卡</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[打卡]]></title>
