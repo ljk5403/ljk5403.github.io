@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[踩坑——Hex编码的C++实现]]></title>
+    <url>%2F2019%2F02%2F23%2F%E8%B8%A9%E5%9D%91%E2%80%94%E2%80%94Hex%E7%BC%96%E7%A0%81%E7%9A%84C%2B%2B%E5%AE%9E%E7%8E%B0%2F</url>
+    <content type="text"><![CDATA[蜜汁Bug：macOS下C++ open语句无法正确地打开文件 ·使用finder直接使用当前路径（“sample”），不行；增加当前路径标识符（“./sample”）,不行；使用用户相对路径（“~/workshop/Lab/sample”）,不行；使用完整路径（“/Users/xxxx/workshop/Lab/sample”），可以。 ·使用terminal直接使用当前路径（“sample”），可以；增加当前路径标识符（“./sample”）,可以；使用用户相对路径（“~/workshop/Lab/sample”）,不行；使用完整路径（“/Users/xxxx/workshop/Lab/sample”），可以。 所以，难道是说，在finder中点击执行会使用非当前用户来执行？？？卒 问题：移位运算符高位补充元素不定？移位时，移出的位数全部丢弃，移出的空位补入的数与左移还是右移有关。如果是左移，则规定补入的数全部是0；如果是右移，还与被移位的数据是否带符号有关。若是不带符号数，则补入的数全部为0；若是带符号数，则补入的数全部等于原数的最左端位上的原数(即原符号位)。 而char 分为有符号性（signed）和无符号型（unsigned）两种：若是signed型，就意味着取值范围为[-128,127]；若是unsigned型，就意味着取值范围为[0,255]； C语言中我们通常直接用类型char，但是它究竟是被当做signed型还是unsigned型，由编译器决定。]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[动漫与科普]]></title>
     <url>%2F2019%2F02%2F10%2F%E5%8A%A8%E6%BC%AB%E4%B8%8E%E7%A7%91%E6%99%AE%2F</url>
     <content type="text"><![CDATA[今天看到嫦娥四号也在B站上面有了动漫科普，一下子想起以前看到的那些经典，是时候好好整理一下啦： Rosetta and Philae（罗赛塔和菲莱）还记得当初第一次看到这个动画是在果壳上，是在罗塞塔号接近那楚啥啥彗星楚留莫夫—格拉希门克彗星的时候。当时被萌翻了，尤其是当韭菜菲莱喊着”Are we there yet?”的时候：但这可不是简简单单的卖萌，而是欧空局的硬核科普！虽说是以动漫的形式不那么严谨地表达，但完整地叙述了罗塞塔和菲莱的探险故事，还将他们的发现以通俗易懂的方式表达出来，从高角度指明了他们的伟大旅途的意义，可以说是非常赞的科普了。最后以罗塞塔降落前的画面以及大合照结尾吧：附上地址：Youtube: https://www.youtube.com/watch?v=trljrwTbr4w&amp;list=PLbyvawxScNbui_Ncl9uQ_fXLOjS4sNSd8Bilibili(缺最后一集和总结集）: https://www.bilibili.com/video/av5947927/果壳翻译版(只更新了4集(╯﹏╰））: https://www.bilibili.com/video/av1381292/（以上图片均来源于ESA，如有侵权请在评论区联系） 隼鸟号初次见面就是她坠落大气层，心疼……所幸有大佬绘制了漫画让大家都记住她（＾ν＾） （其实看完漫画更心疼了）图片来源已不可考，如有侵权请在评论区联系顺便，在找来源的时候还发现了这玩意——《现代萌卫星图鉴》，日本人真是会玩…… 勇气号这是一个超期服役的伟大航天器的故事——背景：勇气号火星探测车原定服役时间90天，最后超期服役了1944天，因为卡在特洛伊沙地的流沙中，电量耗尽，没能撑过低温，科学家们将他安眠的高地命名为“home”。原图来自xkcd，翻译应该是ent的版本。参考了这篇微博 如有侵权请在评论区联系 东方红一号有关东方红一号的漫画有蛮多呢，其中偶尔向左拐的同人挺催泪的，很赞的作品（图太多，大家移步链接看吧）。还有别的作品，大家自己在萌娘百科上找吧～]]></content>
