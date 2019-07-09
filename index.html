@@ -348,6 +348,198 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/09/转载 | PKURunner 破解手记/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Andy Lee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="To Infinity and Beyond">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/09/转载 | PKURunner 破解手记/" class="post-title-link" itemprop="url">转载 | PKURunner 破解手记</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-09 23:43:48 / Modified: 23:48:21" itemprop="dateCreated datePublished" datetime="2019-07-09T23:43:48+08:00">2019-07-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <a href="/2019/07/09/转载 | PKURunner 破解手记/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2019/07/09/转载 | PKURunner 破解手记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/07/09/转载 | PKURunner 破解手记/" class="leancloud_visitors" data-flag-title="转载 | PKURunner 破解手记">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>PKURunner 破解手记</h1>
+<p>by <a href="https://github.com/HamiltonHuaji/PKUWalker" target="_blank" rel="noopener">HamiltonHuaji</a>
+&lt;!--more--&gt;</p>
+<h2>0x00 工欲善其事, 必先利其器</h2>
+<p>工具集: apktool, Android Studio, jd-gui, dex2jar, Root Explorer</p>
+<h2>0x01 掀起你的头盖骨, 让我看看你的脸</h2>
+<p><code>apktool d pkurunner.apk -o pkurunner</code>可得到PKU Runner的smali代码.</p>
+<p><code>jd-gui</code>可以反编译获得部分Java源码以帮助人类识别关键代码.据观察<code>smali/cn/edu/pku/pkurunner</code>是其主要的代码.</p>
+<p>由RE浏览器观察PKU Runner目录可知其数据藏在<code>files/data.db</code>里.</p>
+<p>因此改造这些数据即可伪造跑步记录.为了让非root玩家也能玩, 直接插入代码是不可行的, 因为太长的代码容易导致各种问题, 同时也难插入apk中.</p>
+<p>因此我们选择了导出数据再伪造, 最后导入回来.</p>
+<h2>0x02 把PKU Runner关进虚拟机的笼子</h2>
+<p>偶然间发现某个函数对vbox进行了检测, 以防止有同学用虚拟机作弊. 不如先改掉它练练手.</p>
+<p>经查看Java代码, 其逻辑是检测<code>/dev</code>目录下是否有<code>vbox*</code>的文件. 但是我们直接让它无论如何都返回true就行了.</p>
+<p>因此找到返回值. 它是代码中的一个常量, 那么直接改掉就行了. 经手动创建<code>vbox</code>文件测试, 上述改动确实有效.</p>
+<h2>0x03 XML YES</h2>
+<p>为了导出数据, 我决定直接在它的UI上加个按钮.</p>
+<p>因此找到设置界面的XML, 模仿其他条目, 在上面加了两个按钮.</p>
+<p>回编译, 果然多了两个暂时没有卵用的按钮.</p>
+<h2>0x04 名副其实</h2>
+<p>为了让两个按钮名副其实, 我写了另一个app, 它拥有几乎一毛一样的界面, 但是多了给按钮附加<code>onClickListener</code>的功能.</p>
+<p>当然, <code>onClickListener</code>里的东西, 分别就是分享<code>data.db</code>和向文件管理器要一个文件并写入<code>data.db</code>的代码. (没错, 真的就是用File类什么的暴力写进去.)</p>
+<p>为了防止还有其他代码在读写这个文件, 我设计了写入<code>data.db</code>后退出整个app的功能.</p>
+<p>随后, 将这个app也反编译, 找到其中有用的部分smali并植入PKU Runner的smali代码中.</p>
+<p>回编译, 不出所料, 该有的功能都有了.</p>
+<h2>EOF</h2>
+<p>没啥好说的, 喵.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/13/悼李志/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -410,7 +602,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-14 00:13:35" itemprop="dateModified" datetime="2019-04-14T00:13:35+08:00">2019-04-14</time>
+                <time title="Modified: 2019-07-09 23:48:57" itemprop="dateModified" datetime="2019-07-09T23:48:57+08:00">2019-07-09</time>
               
             
           </span>
@@ -487,10 +679,22 @@
       
         
           
-            <h1 id="悼李志"><a href="#悼李志" class="headerlink" title="悼李志"></a>悼李志</h1><p>几日忙于学业不问世事，不料竟听闻李志被全网封杀，惊讶之后先是不信，但网易云帮我证实了这个消息。虽不是逼哥（李江湖人称逼哥）的铁杆粉丝，但毕竟曾被他的几首歌触动，谨以此文，证明李志，逼哥，和他的那些绝不高雅但也绝不做作的歌存在过。  </p>
-<h2 id="梵高先生"><a href="#梵高先生" class="headerlink" title="梵高先生"></a>梵高先生</h2><p>起初不懂这个歌名的意思，单纯的觉得好——不是好听。好听是带来愉悦，好的歌带来一些想法与情感。反复的“我们生来就是孤独/我们生来就是孤单/不管你拥有什么/我们生来就是孤独”，不似“为赋新词强说愁”的矫揉造作，只是反反复复地陈述这个观点，孤独像空气一般存在，存在而不需要理由。这可不是作为寂寞的高雅代称的“孤独“，不是那些被滥俗情歌用来铺衬情感的裱纸”孤独“。<br>后来读了《渴望生活·梵高传》，大概懂了一些歌名的来由。确实，若说孤独，将其体现得最淋漓尽致的莫过于梵高了吧。  </p>
-<h2 id="天空之城"><a href="#天空之城" class="headerlink" title="天空之城"></a>天空之城</h2><p>深情而不矫情，通俗而不庸俗，这才是好的情歌。<br>没什么想说的，情至深处，红笺为无色。  </p>
-<h2 id="一些想说的"><a href="#一些想说的" class="headerlink" title="一些想说的"></a>一些想说的</h2><p>喜欢李志的歌但不经常听，喜欢是因为感觉到了疯狂生长的共性，不常听是因为我个人更喜欢冷静清醒，不甚喜欢妥协的感觉。但我尊重他存在这个事实。但，出于什么样的一些原因呢，他在大众的视线里凭空蒸发了，干干净净，不留痕迹。他的歌不见了，曾经的褒贬不见了。<br>但我记得他来过，记得他唱过歌，唱过北岛的执拗，唱过米店的平静，唱出过一个疑问：<br>这个世界会好吗？<br>这个世界会好吗？<br>这个世界会好吗？<br>我希望会。  </p>
+            <h1>悼李志</h1>
+<p>几日忙于学业不问世事，不料竟听闻李志被全网封杀，惊讶之后先是不信，但网易云帮我证实了这个消息。虽不是逼哥（李江湖人称逼哥）的铁杆粉丝，但毕竟曾被他的几首歌触动，谨以此文，证明李志，逼哥，和他的那些绝不高雅但也绝不做作的歌存在过。<br>
+&lt;!--more--&gt;</p>
+<h2>梵高先生</h2>
+<p>起初不懂这个歌名的意思，单纯的觉得好——不是好听。好听是带来愉悦，好的歌带来一些想法与情感。反复的“我们生来就是孤独/我们生来就是孤单/不管你拥有什么/我们生来就是孤独”，不似“为赋新词强说愁”的矫揉造作，只是反反复复地陈述这个观点，孤独像空气一般存在，存在而不需要理由。这可不是作为寂寞的高雅代称的“孤独“，不是那些被滥俗情歌用来铺衬情感的裱纸”孤独“。<br>
+后来读了《渴望生活·梵高传》，大概懂了一些歌名的来由。确实，若说孤独，将其体现得最淋漓尽致的莫过于梵高了吧。</p>
+<h2>天空之城</h2>
+<p>深情而不矫情，通俗而不庸俗，这才是好的情歌。<br>
+没什么想说的，情至深处，红笺为无色。</p>
+<h2>一些想说的</h2>
+<p>喜欢李志的歌但不经常听，喜欢是因为感觉到了疯狂生长的共性，不常听是因为我个人更喜欢冷静清醒，不甚喜欢妥协的感觉。但我尊重他存在这个事实。但，出于什么样的一些原因呢，他在大众的视线里凭空蒸发了，干干净净，不留痕迹。他的歌不见了，曾经的褒贬不见了。<br>
+但我记得他来过，记得他唱过歌，唱过北岛的执拗，唱过米店的平静，唱出过一个疑问：<br>
+这个世界会好吗？<br>
+这个世界会好吗？<br>
+这个世界会好吗？<br>
+我希望会。</p>
 
           
         
@@ -2117,208 +2321,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/31/客从远方来/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Andy Lee">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="To Infinity and Beyond">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/12/31/客从远方来/" class="post-title-link" itemprop="url">客从远方来</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-12-31 21:38:00" itemprop="dateCreated datePublished" datetime="2018-12-31T21:38:00+08:00">2018-12-31</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-01-20 19:26:00" itemprop="dateModified" datetime="2019-01-20T19:26:00+08:00">2019-01-20</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/生活/" itemprop="url" rel="index"><span itemprop="name">生活</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <a href="/2018/12/31/客从远方来/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count valine-comment-count" data-xid="/2018/12/31/客从远方来/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2018/12/31/客从远方来/" class="leancloud_visitors" data-flag-title="客从远方来">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Views: </span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="客从远方来"><a href="#客从远方来" class="headerlink" title="客从远方来"></a>客从远方来</h1><h2 id="Part1-12-30-18"><a href="#Part1-12-30-18" class="headerlink" title="Part1  12/30/18"></a>Part1  12/30/18</h2><p>小熊和他的朋友霍金一起骑车从北京赶过来啦，下午14:00到达。<br>到达之一起聊了会儿，顺便把MacBook带过去当作充电宝帮忙奶了一波手机🤣  小熊的手机还因为低温关机了，为了救活它还跑到了旁边的实验大厦里面去蹭暖气🤣  顺便聊了许多有关骑行和boskey的话题，小涨了一波姿势😆 而后逛了逛校园（其实只是为了去吃饭）去了食堂。之后他们去找住宿。<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/12/31/客从远方来/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2366,7 +2368,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2378,6 +2380,8 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
+                    
+                      
                     
                       
                     
@@ -2418,7 +2422,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
