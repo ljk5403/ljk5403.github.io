@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="PKURunner 破解手记 by HamiltonHuaji &amp;lt;!--more--&amp;gt; 0x00 工欲善其事, 必先利其器 工具集: apktool, Android Studio, jd-gui, dex2jar, Root Explorer 0x01 掀起你的头盖骨, 让我看看你的脸 apktool d pkurunner.apk -o pkurunner可得到PKU Runner">
+  <meta name="description" content="PKURunner 破解手记by HamiltonHuaji">
 <meta name="keywords" content="转载">
 <meta property="og:type" content="article">
 <meta property="og:title" content="转载 | PKURunner 破解手记">
 <meta property="og:url" content="http://yoursite.com/2019/07/09/转载 | PKURunner 破解手记/index.html">
 <meta property="og:site_name" content="To Infinity and Beyond">
-<meta property="og:description" content="PKURunner 破解手记 by HamiltonHuaji &amp;lt;!--more--&amp;gt; 0x00 工欲善其事, 必先利其器 工具集: apktool, Android Studio, jd-gui, dex2jar, Root Explorer 0x01 掀起你的头盖骨, 让我看看你的脸 apktool d pkurunner.apk -o pkurunner可得到PKU Runner">
+<meta property="og:description" content="PKURunner 破解手记by HamiltonHuaji">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-09T15:48:21.781Z">
+<meta property="og:updated_time" content="2019-07-09T15:51:02.674Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="转载 | PKURunner 破解手记">
-<meta name="twitter:description" content="PKURunner 破解手记 by HamiltonHuaji &amp;lt;!--more--&amp;gt; 0x00 工欲善其事, 必先利其器 工具集: apktool, Android Studio, jd-gui, dex2jar, Root Explorer 0x01 掀起你的头盖骨, 让我看看你的脸 apktool d pkurunner.apk -o pkurunner可得到PKU Runner">
+<meta name="twitter:description" content="PKURunner 破解手记by HamiltonHuaji">
 
 
 
@@ -395,7 +395,7 @@
                 
               
 
-              <time title="Created: 2019-07-09 23:43:48 / Modified: 23:48:21" itemprop="dateCreated datePublished" datetime="2019-07-09T23:43:48+08:00">2019-07-09</time>
+              <time title="Created: 2019-07-09 23:43:48 / Modified: 23:51:02" itemprop="dateCreated datePublished" datetime="2019-07-09T23:43:48+08:00">2019-07-09</time>
             
 
             
@@ -457,33 +457,26 @@
       
 
       
-        <h1>PKURunner 破解手记</h1>
-<p>by <a href="https://github.com/HamiltonHuaji/PKUWalker" target="_blank" rel="noopener">HamiltonHuaji</a>
-&lt;!--more--&gt;</p>
-<h2>0x00 工欲善其事, 必先利其器</h2>
-<p>工具集: apktool, Android Studio, jd-gui, dex2jar, Root Explorer</p>
-<h2>0x01 掀起你的头盖骨, 让我看看你的脸</h2>
-<p><code>apktool d pkurunner.apk -o pkurunner</code>可得到PKU Runner的smali代码.</p>
+        <h1 id="PKURunner-破解手记"><a href="#PKURunner-破解手记" class="headerlink" title="PKURunner 破解手记"></a>PKURunner 破解手记</h1><p>by <a href="https://github.com/HamiltonHuaji/PKUWalker" target="_blank" rel="noopener">HamiltonHuaji</a>  </p>
+<a id="more"></a>
+<h2 id="0x00-工欲善其事-必先利其器"><a href="#0x00-工欲善其事-必先利其器" class="headerlink" title="0x00 工欲善其事, 必先利其器"></a>0x00 工欲善其事, 必先利其器</h2><p>工具集: apktool, Android Studio, jd-gui, dex2jar, Root Explorer</p>
+<h2 id="0x01-掀起你的头盖骨-让我看看你的脸"><a href="#0x01-掀起你的头盖骨-让我看看你的脸" class="headerlink" title="0x01 掀起你的头盖骨, 让我看看你的脸"></a>0x01 掀起你的头盖骨, 让我看看你的脸</h2><p><code>apktool d pkurunner.apk -o pkurunner</code>可得到PKU Runner的smali代码.</p>
 <p><code>jd-gui</code>可以反编译获得部分Java源码以帮助人类识别关键代码.据观察<code>smali/cn/edu/pku/pkurunner</code>是其主要的代码.</p>
 <p>由RE浏览器观察PKU Runner目录可知其数据藏在<code>files/data.db</code>里.</p>
 <p>因此改造这些数据即可伪造跑步记录.为了让非root玩家也能玩, 直接插入代码是不可行的, 因为太长的代码容易导致各种问题, 同时也难插入apk中.</p>
 <p>因此我们选择了导出数据再伪造, 最后导入回来.</p>
-<h2>0x02 把PKU Runner关进虚拟机的笼子</h2>
-<p>偶然间发现某个函数对vbox进行了检测, 以防止有同学用虚拟机作弊. 不如先改掉它练练手.</p>
+<h2 id="0x02-把PKU-Runner关进虚拟机的笼子"><a href="#0x02-把PKU-Runner关进虚拟机的笼子" class="headerlink" title="0x02 把PKU Runner关进虚拟机的笼子"></a>0x02 把PKU Runner关进虚拟机的笼子</h2><p>偶然间发现某个函数对vbox进行了检测, 以防止有同学用虚拟机作弊. 不如先改掉它练练手.</p>
 <p>经查看Java代码, 其逻辑是检测<code>/dev</code>目录下是否有<code>vbox*</code>的文件. 但是我们直接让它无论如何都返回true就行了.</p>
 <p>因此找到返回值. 它是代码中的一个常量, 那么直接改掉就行了. 经手动创建<code>vbox</code>文件测试, 上述改动确实有效.</p>
-<h2>0x03 XML YES</h2>
-<p>为了导出数据, 我决定直接在它的UI上加个按钮.</p>
+<h2 id="0x03-XML-YES"><a href="#0x03-XML-YES" class="headerlink" title="0x03 XML YES"></a>0x03 XML YES</h2><p>为了导出数据, 我决定直接在它的UI上加个按钮.</p>
 <p>因此找到设置界面的XML, 模仿其他条目, 在上面加了两个按钮.</p>
 <p>回编译, 果然多了两个暂时没有卵用的按钮.</p>
-<h2>0x04 名副其实</h2>
-<p>为了让两个按钮名副其实, 我写了另一个app, 它拥有几乎一毛一样的界面, 但是多了给按钮附加<code>onClickListener</code>的功能.</p>
+<h2 id="0x04-名副其实"><a href="#0x04-名副其实" class="headerlink" title="0x04 名副其实"></a>0x04 名副其实</h2><p>为了让两个按钮名副其实, 我写了另一个app, 它拥有几乎一毛一样的界面, 但是多了给按钮附加<code>onClickListener</code>的功能.</p>
 <p>当然, <code>onClickListener</code>里的东西, 分别就是分享<code>data.db</code>和向文件管理器要一个文件并写入<code>data.db</code>的代码. (没错, 真的就是用File类什么的暴力写进去.)</p>
 <p>为了防止还有其他代码在读写这个文件, 我设计了写入<code>data.db</code>后退出整个app的功能.</p>
 <p>随后, 将这个app也反编译, 找到其中有用的部分smali并植入PKU Runner的smali代码中.</p>
 <p>回编译, 不出所料, 该有的功能都有了.</p>
-<h2>EOF</h2>
-<p>没啥好说的, 喵.</p>
+<h2 id="EOF"><a href="#EOF" class="headerlink" title="EOF"></a>EOF</h2><p>没啥好说的, 喵.</p>
 
       
     </div>
@@ -694,7 +687,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">PKURunner 破解手记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">0x00 工欲善其事, 必先利其器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">0x01 掀起你的头盖骨, 让我看看你的脸</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">0x02 把PKU Runner关进虚拟机的笼子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">0x03 XML YES</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">0x04 名副其实</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.6.</span> <span class="nav-text">EOF</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PKURunner-破解手记"><span class="nav-number">1.</span> <span class="nav-text">PKURunner 破解手记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-工欲善其事-必先利其器"><span class="nav-number">1.1.</span> <span class="nav-text">0x00 工欲善其事, 必先利其器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-掀起你的头盖骨-让我看看你的脸"><span class="nav-number">1.2.</span> <span class="nav-text">0x01 掀起你的头盖骨, 让我看看你的脸</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-把PKU-Runner关进虚拟机的笼子"><span class="nav-number">1.3.</span> <span class="nav-text">0x02 把PKU Runner关进虚拟机的笼子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-XML-YES"><span class="nav-number">1.4.</span> <span class="nav-text">0x03 XML YES</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04-名副其实"><span class="nav-number">1.5.</span> <span class="nav-text">0x04 名副其实</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EOF"><span class="nav-number">1.6.</span> <span class="nav-text">EOF</span></a></li></ol></li></ol></div>
             
 
           </div>

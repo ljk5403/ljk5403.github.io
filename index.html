@@ -393,7 +393,7 @@
                 
               
 
-              <time title="Created: 2019-07-09 23:43:48 / Modified: 23:48:21" itemprop="dateCreated datePublished" datetime="2019-07-09T23:43:48+08:00">2019-07-09</time>
+              <time title="Created: 2019-07-09 23:43:48 / Modified: 23:51:02" itemprop="dateCreated datePublished" datetime="2019-07-09T23:43:48+08:00">2019-07-09</time>
             
 
             
@@ -456,36 +456,16 @@
 
       
         
+          <h1 id="PKURunner-破解手记"><a href="#PKURunner-破解手记" class="headerlink" title="PKURunner 破解手记"></a>PKURunner 破解手记</h1><p>by <a href="https://github.com/HamiltonHuaji/PKUWalker" target="_blank" rel="noopener">HamiltonHuaji</a>  </p>
+          <!--noindex-->
           
-            <h1>PKURunner 破解手记</h1>
-<p>by <a href="https://github.com/HamiltonHuaji/PKUWalker" target="_blank" rel="noopener">HamiltonHuaji</a>
-&lt;!--more--&gt;</p>
-<h2>0x00 工欲善其事, 必先利其器</h2>
-<p>工具集: apktool, Android Studio, jd-gui, dex2jar, Root Explorer</p>
-<h2>0x01 掀起你的头盖骨, 让我看看你的脸</h2>
-<p><code>apktool d pkurunner.apk -o pkurunner</code>可得到PKU Runner的smali代码.</p>
-<p><code>jd-gui</code>可以反编译获得部分Java源码以帮助人类识别关键代码.据观察<code>smali/cn/edu/pku/pkurunner</code>是其主要的代码.</p>
-<p>由RE浏览器观察PKU Runner目录可知其数据藏在<code>files/data.db</code>里.</p>
-<p>因此改造这些数据即可伪造跑步记录.为了让非root玩家也能玩, 直接插入代码是不可行的, 因为太长的代码容易导致各种问题, 同时也难插入apk中.</p>
-<p>因此我们选择了导出数据再伪造, 最后导入回来.</p>
-<h2>0x02 把PKU Runner关进虚拟机的笼子</h2>
-<p>偶然间发现某个函数对vbox进行了检测, 以防止有同学用虚拟机作弊. 不如先改掉它练练手.</p>
-<p>经查看Java代码, 其逻辑是检测<code>/dev</code>目录下是否有<code>vbox*</code>的文件. 但是我们直接让它无论如何都返回true就行了.</p>
-<p>因此找到返回值. 它是代码中的一个常量, 那么直接改掉就行了. 经手动创建<code>vbox</code>文件测试, 上述改动确实有效.</p>
-<h2>0x03 XML YES</h2>
-<p>为了导出数据, 我决定直接在它的UI上加个按钮.</p>
-<p>因此找到设置界面的XML, 模仿其他条目, 在上面加了两个按钮.</p>
-<p>回编译, 果然多了两个暂时没有卵用的按钮.</p>
-<h2>0x04 名副其实</h2>
-<p>为了让两个按钮名副其实, 我写了另一个app, 它拥有几乎一毛一样的界面, 但是多了给按钮附加<code>onClickListener</code>的功能.</p>
-<p>当然, <code>onClickListener</code>里的东西, 分别就是分享<code>data.db</code>和向文件管理器要一个文件并写入<code>data.db</code>的代码. (没错, 真的就是用File类什么的暴力写进去.)</p>
-<p>为了防止还有其他代码在读写这个文件, 我设计了写入<code>data.db</code>后退出整个app的功能.</p>
-<p>随后, 将这个app也反编译, 找到其中有用的部分smali并植入PKU Runner的smali代码中.</p>
-<p>回编译, 不出所料, 该有的功能都有了.</p>
-<h2>EOF</h2>
-<p>没啥好说的, 喵.</p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/09/转载 | PKURunner 破解手记/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
@@ -602,7 +582,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-09 23:48:57" itemprop="dateModified" datetime="2019-07-09T23:48:57+08:00">2019-07-09</time>
+                <time title="Modified: 2019-07-09 23:50:52" itemprop="dateModified" datetime="2019-07-09T23:50:52+08:00">2019-07-09</time>
               
             
           </span>
@@ -678,25 +658,16 @@
 
       
         
+          <h1 id="悼李志"><a href="#悼李志" class="headerlink" title="悼李志"></a>悼李志</h1><p>几日忙于学业不问世事，不料竟听闻李志被全网封杀，惊讶之后先是不信，但网易云帮我证实了这个消息。虽不是逼哥（李江湖人称逼哥）的铁杆粉丝，但毕竟曾被他的几首歌触动，谨以此文，证明李志，逼哥，和他的那些绝不高雅但也绝不做作的歌存在过。   </p>
+          <!--noindex-->
           
-            <h1>悼李志</h1>
-<p>几日忙于学业不问世事，不料竟听闻李志被全网封杀，惊讶之后先是不信，但网易云帮我证实了这个消息。虽不是逼哥（李江湖人称逼哥）的铁杆粉丝，但毕竟曾被他的几首歌触动，谨以此文，证明李志，逼哥，和他的那些绝不高雅但也绝不做作的歌存在过。<br>
-&lt;!--more--&gt;</p>
-<h2>梵高先生</h2>
-<p>起初不懂这个歌名的意思，单纯的觉得好——不是好听。好听是带来愉悦，好的歌带来一些想法与情感。反复的“我们生来就是孤独/我们生来就是孤单/不管你拥有什么/我们生来就是孤独”，不似“为赋新词强说愁”的矫揉造作，只是反反复复地陈述这个观点，孤独像空气一般存在，存在而不需要理由。这可不是作为寂寞的高雅代称的“孤独“，不是那些被滥俗情歌用来铺衬情感的裱纸”孤独“。<br>
-后来读了《渴望生活·梵高传》，大概懂了一些歌名的来由。确实，若说孤独，将其体现得最淋漓尽致的莫过于梵高了吧。</p>
-<h2>天空之城</h2>
-<p>深情而不矫情，通俗而不庸俗，这才是好的情歌。<br>
-没什么想说的，情至深处，红笺为无色。</p>
-<h2>一些想说的</h2>
-<p>喜欢李志的歌但不经常听，喜欢是因为感觉到了疯狂生长的共性，不常听是因为我个人更喜欢冷静清醒，不甚喜欢妥协的感觉。但我尊重他存在这个事实。但，出于什么样的一些原因呢，他在大众的视线里凭空蒸发了，干干净净，不留痕迹。他的歌不见了，曾经的褒贬不见了。<br>
-但我记得他来过，记得他唱过歌，唱过北岛的执拗，唱过米店的平静，唱出过一个疑问：<br>
-这个世界会好吗？<br>
-这个世界会好吗？<br>
-这个世界会好吗？<br>
-我希望会。</p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/13/悼李志/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
