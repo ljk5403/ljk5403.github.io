@@ -1,0 +1,1 @@
+作为theme原本有git仓库，其中隐藏文件全部放到了gitbak.tar.gz中
