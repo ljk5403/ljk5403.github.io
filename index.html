@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="To Infinity and Beyond">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="To Infinity and Beyond">
+<meta property="og:locale">
+<meta property="article:author" content="Andy Lee">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>To Infinity and Beyond</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">To Infinity and Beyond</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/07/07/%E5%9F%BA%E4%BA%8EGithub%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%92%8C%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Andy Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="To Infinity and Beyond">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/07/%E5%9F%BA%E4%BA%8EGithub%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%92%8C%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">基于Github的博客和笔记系统</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-07-07 20:21:11" itemprop="dateCreated datePublished" datetime="2021-07-07T20:21:11+08:00">2021-07-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-07-08 11:11:14" itemprop="dateModified" datetime="2021-07-08T11:11:14+08:00">2021-07-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/07/07/%E5%9F%BA%E4%BA%8EGithub%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%92%8C%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F/" class="post-meta-item leancloud_visitors" data-flag-title="基于Github的博客和笔记系统" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2021/07/07/%E5%9F%BA%E4%BA%8EGithub%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%92%8C%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/07/%E5%9F%BA%E4%BA%8EGithub%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%92%8C%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/07/%E5%9F%BA%E4%BA%8EGithub%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%92%8C%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/18/%E9%81%BF%E5%9D%91%EF%BC%9AArch%E7%B3%BBLinux%E4%B8%8Anc%E7%9A%84%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Andy Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="To Infinity and Beyond">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/18/%E9%81%BF%E5%9D%91%EF%BC%9AArch%E7%B3%BBLinux%E4%B8%8Anc%E7%9A%84%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">避坑：Arch系Linux上nc的安装</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-12-18 23:15:50" itemprop="dateCreated datePublished" datetime="2020-12-18T23:15:50+08:00">2020-12-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-07-08 11:11:14" itemprop="dateModified" datetime="2021-07-08T11:11:14+08:00">2021-07-08</time>
+              </span>
+
+          
+            <span id="/2020/12/18/%E9%81%BF%E5%9D%91%EF%BC%9AArch%E7%B3%BBLinux%E4%B8%8Anc%E7%9A%84%E5%AE%89%E8%A3%85/" class="post-meta-item leancloud_visitors" data-flag-title="避坑：Arch系Linux上nc的安装" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/12/18/%E9%81%BF%E5%9D%91%EF%BC%9AArch%E7%B3%BBLinux%E4%B8%8Anc%E7%9A%84%E5%AE%89%E8%A3%85/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/18/%E9%81%BF%E5%9D%91%EF%BC%9AArch%E7%B3%BBLinux%E4%B8%8Anc%E7%9A%84%E5%AE%89%E8%A3%85/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="避坑：Arch系Linux上nc的安装"><a href="#避坑：Arch系Linux上nc的安装" class="headerlink" title="避坑：Arch系Linux上nc的安装"></a>避坑：Arch系Linux上nc的安装</h1><p>在为vscode配置ssh及其代理的过程中，遇到如下坑：</p>
+<p><code>nc</code>是<code>netcat</code>的缩写。在仓库中有两个包提供这一命令，分别是<code>gnu-netcat</code>和<code>openbsd-netcat</code>。它们提供的二进制文件都叫<code>nc</code>，但其参数格式不同。网上大多数用<code>nc</code>作为<code>vscode</code>的<code>ssh</code>代理的文章，用的都是后者。如果安装的是前者就会报错。</p>
+<p>幸甚至哉，书以避坑。</p>
+<p>by 一只不愿意透露姓名的猫猫</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/22/%E9%BE%99%E7%9A%84%E7%89%99%E5%8C%BB%EF%BC%9A%E5%BD%93%E6%84%8F%E5%BF%97%E7%9B%B4%E9%9D%A2%E5%91%BD%E8%BF%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Andy Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="To Infinity and Beyond">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/22/%E9%BE%99%E7%9A%84%E7%89%99%E5%8C%BB%EF%BC%9A%E5%BD%93%E6%84%8F%E5%BF%97%E7%9B%B4%E9%9D%A2%E5%91%BD%E8%BF%90/" class="post-title-link" itemprop="url">龙的牙医：当意志直面命运</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-22 14:43:18" itemprop="dateCreated datePublished" datetime="2020-11-22T14:43:18+08:00">2020-11-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-07-08 11:11:14" itemprop="dateModified" datetime="2021-07-08T11:11:14+08:00">2021-07-08</time>
+              </span>
+
+          
+            <span id="/2020/11/22/%E9%BE%99%E7%9A%84%E7%89%99%E5%8C%BB%EF%BC%9A%E5%BD%93%E6%84%8F%E5%BF%97%E7%9B%B4%E9%9D%A2%E5%91%BD%E8%BF%90/" class="post-meta-item leancloud_visitors" data-flag-title="龙的牙医：当意志直面命运" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/11/22/%E9%BE%99%E7%9A%84%E7%89%99%E5%8C%BB%EF%BC%9A%E5%BD%93%E6%84%8F%E5%BF%97%E7%9B%B4%E9%9D%A2%E5%91%BD%E8%BF%90/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/22/%E9%BE%99%E7%9A%84%E7%89%99%E5%8C%BB%EF%BC%9A%E5%BD%93%E6%84%8F%E5%BF%97%E7%9B%B4%E9%9D%A2%E5%91%BD%E8%BF%90/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>剧透警告！！！</strong></p>
+<p>第一次接触到《龙的牙医》其实是抱着随便逛逛的心态，或许是在读过《中国太阳》又看过《星空清理者》后对这种清洁工主题的题材有种莫名的好感吧（笑）。开头干净利落地交代了故事背景：我们就是架空在一个有着龙和龙的牙医的世界！</p>
+<p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/22/%E9%BE%99%E7%9A%84%E7%89%99%E5%8C%BB%EF%BC%9A%E5%BD%93%E6%84%8F%E5%BF%97%E7%9B%B4%E9%9D%A2%E5%91%BD%E8%BF%90/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/03/%E3%80%8A%E9%BE%99%E4%B8%8E%E8%99%8E%E3%80%8B%E6%9D%82%E8%B0%88%EF%BC%9A%E7%88%B1%E8%8B%A5%E5%B9%BD%E7%81%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Andy Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="To Infinity and Beyond">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/03/%E3%80%8A%E9%BE%99%E4%B8%8E%E8%99%8E%E3%80%8B%E6%9D%82%E8%B0%88%EF%BC%9A%E7%88%B1%E8%8B%A5%E5%B9%BD%E7%81%B5/" class="post-title-link" itemprop="url">《龙与虎》杂谈：爱若幽灵</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-03 09:12:34" itemprop="dateCreated datePublished" datetime="2020-07-03T09:12:34+08:00">2020-07-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-07-08 11:11:14" itemprop="dateModified" datetime="2021-07-08T11:11:14+08:00">2021-07-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%98%9F%E7%A7%AF%E7%9B%98/" itemprop="url" rel="index"><span itemprop="name">星积盘</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/07/03/%E3%80%8A%E9%BE%99%E4%B8%8E%E8%99%8E%E3%80%8B%E6%9D%82%E8%B0%88%EF%BC%9A%E7%88%B1%E8%8B%A5%E5%B9%BD%E7%81%B5/" class="post-meta-item leancloud_visitors" data-flag-title="《龙与虎》杂谈：爱若幽灵" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/07/03/%E3%80%8A%E9%BE%99%E4%B8%8E%E8%99%8E%E3%80%8B%E6%9D%82%E8%B0%88%EF%BC%9A%E7%88%B1%E8%8B%A5%E5%B9%BD%E7%81%B5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/03/%E3%80%8A%E9%BE%99%E4%B8%8E%E8%99%8E%E3%80%8B%E6%9D%82%E8%B0%88%EF%BC%9A%E7%88%B1%E8%8B%A5%E5%B9%BD%E7%81%B5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="《龙与虎》杂谈：爱若幽灵"><a href="#《龙与虎》杂谈：爱若幽灵" class="headerlink" title="《龙与虎》杂谈：爱若幽灵"></a>《龙与虎》杂谈：爱若幽灵</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/03/%E3%80%8A%E9%BE%99%E4%B8%8E%E8%99%8E%E3%80%8B%E6%9D%82%E8%B0%88%EF%BC%9A%E7%88%B1%E8%8B%A5%E5%B9%BD%E7%81%B5/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/28/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BF%B7%E5%B9%BB%E7%9A%84%E6%89%BE%20Bug%EF%BC%9AAndroid%20Studio%20%E5%92%8C%20vim%20%E7%9A%84%E2%80%9C%E5%B0%8F%E2%80%9D%E5%86%B2%E7%AA%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Andy Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="To Infinity and Beyond">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/28/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BF%B7%E5%B9%BB%E7%9A%84%E6%89%BE%20Bug%EF%BC%9AAndroid%20Studio%20%E5%92%8C%20vim%20%E7%9A%84%E2%80%9C%E5%B0%8F%E2%80%9D%E5%86%B2%E7%AA%81/" class="post-title-link" itemprop="url">记一次迷幻的找 Bug：Android Studio 和 vim 的“小”冲突</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-06-28 06:55:35" itemprop="dateCreated datePublished" datetime="2020-06-28T06:55:35+08:00">2020-06-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-07-08 11:11:14" itemprop="dateModified" datetime="2021-07-08T11:11:14+08:00">2021-07-08</time>
+              </span>
+
+          
+            <span id="/2020/06/28/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BF%B7%E5%B9%BB%E7%9A%84%E6%89%BE%20Bug%EF%BC%9AAndroid%20Studio%20%E5%92%8C%20vim%20%E7%9A%84%E2%80%9C%E5%B0%8F%E2%80%9D%E5%86%B2%E7%AA%81/" class="post-meta-item leancloud_visitors" data-flag-title="记一次迷幻的找 Bug：Android Studio 和 vim 的“小”冲突" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/06/28/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BF%B7%E5%B9%BB%E7%9A%84%E6%89%BE%20Bug%EF%BC%9AAndroid%20Studio%20%E5%92%8C%20vim%20%E7%9A%84%E2%80%9C%E5%B0%8F%E2%80%9D%E5%86%B2%E7%AA%81/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/28/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BF%B7%E5%B9%BB%E7%9A%84%E6%89%BE%20Bug%EF%BC%9AAndroid%20Studio%20%E5%92%8C%20vim%20%E7%9A%84%E2%80%9C%E5%B0%8F%E2%80%9D%E5%86%B2%E7%AA%81/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="记一次迷幻的找-Bug：Android-Studio-和-vim-的“小”冲突"><a href="#记一次迷幻的找-Bug：Android-Studio-和-vim-的“小”冲突" class="headerlink" title="记一次迷幻的找 Bug：Android Studio 和 vim 的“小”冲突"></a>记一次迷幻的找 Bug：Android Studio 和 vim 的“小”冲突</h1><p>这是一个迷幻的 Bug 的发现过程记录，如果想看解决方案可以直接拉到问题发现 的末尾～</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/28/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BF%B7%E5%B9%BB%E7%9A%84%E6%89%BE%20Bug%EF%BC%9AAndroid%20Studio%20%E5%92%8C%20vim%20%E7%9A%84%E2%80%9C%E5%B0%8F%E2%80%9D%E5%86%B2%E7%AA%81/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/21/%E6%98%9F%E7%A7%AF%E7%9B%98%EF%BD%9C%E6%98%9F%E9%99%85%E7%89%9B%E4%BB%94%C2%B7%E5%A4%A9%E5%9B%BD%E4%B9%8B%E6%89%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Andy Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="To Infinity and Beyond">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/21/%E6%98%9F%E7%A7%AF%E7%9B%98%EF%BD%9C%E6%98%9F%E9%99%85%E7%89%9B%E4%BB%94%C2%B7%E5%A4%A9%E5%9B%BD%E4%B9%8B%E6%89%89/" class="post-title-link" itemprop="url">星积盘｜星际牛仔·天国之扉</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-21 22:47:57" itemprop="dateCreated datePublished" datetime="2020-03-21T22:47:57+08:00">2020-03-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-07-08 11:11:14" itemprop="dateModified" datetime="2021-07-08T11:11:14+08:00">2021-07-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%98%9F%E7%A7%AF%E7%9B%98/" itemprop="url" rel="index"><span itemprop="name">星积盘</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/03/21/%E6%98%9F%E7%A7%AF%E7%9B%98%EF%BD%9C%E6%98%9F%E9%99%85%E7%89%9B%E4%BB%94%C2%B7%E5%A4%A9%E5%9B%BD%E4%B9%8B%E6%89%89/" class="post-meta-item leancloud_visitors" data-flag-title="星积盘｜星际牛仔·天国之扉" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/03/21/%E6%98%9F%E7%A7%AF%E7%9B%98%EF%BD%9C%E6%98%9F%E9%99%85%E7%89%9B%E4%BB%94%C2%B7%E5%A4%A9%E5%9B%BD%E4%B9%8B%E6%89%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/21/%E6%98%9F%E7%A7%AF%E7%9B%98%EF%BD%9C%E6%98%9F%E9%99%85%E7%89%9B%E4%BB%94%C2%B7%E5%A4%A9%E5%9B%BD%E4%B9%8B%E6%89%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="星积盘｜星际牛仔·天国之扉"><a href="#星积盘｜星际牛仔·天国之扉" class="headerlink" title="星积盘｜星际牛仔·天国之扉"></a>星积盘｜星际牛仔·天国之扉</h1><p><strong>这是星积盘的第 6 篇文章，mainly by 鲮鲤</strong></p>
+<p>把《星际牛仔·天国之扉》看完了，依旧震撼，依旧风格大于故事。尤其是与剧场版这将近两个小时跨度相比——但剧情控制实在是柔顺跃动，和李小龙的“Be Water”哲学相当契合了。</p>
+<p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/21/%E6%98%9F%E7%A7%AF%E7%9B%98%EF%BD%9C%E6%98%9F%E9%99%85%E7%89%9B%E4%BB%94%C2%B7%E5%A4%A9%E5%9B%BD%E4%B9%8B%E6%89%89/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/29/%E6%98%9F%E7%A7%AF%E7%9B%98%C2%B7X%EF%BD%9C%E7%8B%90%E7%8B%B8%E4%B8%8E%E9%B2%AE%E9%B2%A4%EF%BC%8C%E6%95%85%E4%BA%8B%E7%BF%BB%E8%BD%AC%EF%BC%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Andy Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="To Infinity and Beyond">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/29/%E6%98%9F%E7%A7%AF%E7%9B%98%C2%B7X%EF%BD%9C%E7%8B%90%E7%8B%B8%E4%B8%8E%E9%B2%AE%E9%B2%A4%EF%BC%8C%E6%95%85%E4%BA%8B%E7%BF%BB%E8%BD%AC%EF%BC%81/" class="post-title-link" itemprop="url">星积盘·X｜狐狸与鲮鲤，故事翻转！</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-29T00:00:00+08:00">2020-02-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-07-08 11:11:14" itemprop="dateModified" datetime="2021-07-08T11:11:14+08:00">2021-07-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%98%9F%E7%A7%AF%E7%9B%98/" itemprop="url" rel="index"><span itemprop="name">星积盘</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/02/29/%E6%98%9F%E7%A7%AF%E7%9B%98%C2%B7X%EF%BD%9C%E7%8B%90%E7%8B%B8%E4%B8%8E%E9%B2%AE%E9%B2%A4%EF%BC%8C%E6%95%85%E4%BA%8B%E7%BF%BB%E8%BD%AC%EF%BC%81/" class="post-meta-item leancloud_visitors" data-flag-title="星积盘·X｜狐狸与鲮鲤，故事翻转！" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/02/29/%E6%98%9F%E7%A7%AF%E7%9B%98%C2%B7X%EF%BD%9C%E7%8B%90%E7%8B%B8%E4%B8%8E%E9%B2%AE%E9%B2%A4%EF%BC%8C%E6%95%85%E4%BA%8B%E7%BF%BB%E8%BD%AC%EF%BC%81/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/29/%E6%98%9F%E7%A7%AF%E7%9B%98%C2%B7X%EF%BD%9C%E7%8B%90%E7%8B%B8%E4%B8%8E%E9%B2%AE%E9%B2%A4%EF%BC%8C%E6%95%85%E4%BA%8B%E7%BF%BB%E8%BD%AC%EF%BC%81/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="星积盘·X｜狐狸与鲮鲤，故事翻转！"><a href="#星积盘·X｜狐狸与鲮鲤，故事翻转！" class="headerlink" title="星积盘·X｜狐狸与鲮鲤，故事翻转！"></a>星积盘·X｜狐狸与鲮鲤，故事翻转！</h1><p>星积盘改版啦，是狐狸和鲮鲤共同的主意，大致原因是作者太懒啦，明明自己记下了那么多点子却不愿意整理出来，就像松鼠搜集了大把的坚果却任待其发霉，还不如分享给大家或者种成大树呢（狐狸语）。</p>
+<p>所以以后的星积盘将由狐狸与鲮鲤一个出点子，一个写文章，至于是简单评点一番，还是洋洋洒洒长篇大论，就看两位的心情啦。</p>
+<p>不过可以保证的是，由于相互督促，至少一周一更没问题的！</p>
+<p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/29/%E6%98%9F%E7%A7%AF%E7%9B%98%C2%B7X%EF%BD%9C%E7%8B%90%E7%8B%B8%E4%B8%8E%E9%B2%AE%E9%B2%A4%EF%BC%8C%E6%95%85%E4%BA%8B%E7%BF%BB%E8%BD%AC%EF%BC%81/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/26/%E6%98%9F%E7%A7%AF%E7%9B%98%C2%B74%EF%BD%9C%E4%BE%8B%E5%AD%90%E4%BB%80%E4%B9%88%E7%9A%84%E9%83%BD%E5%8E%BB%E6%AD%BB%E5%90%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Andy Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="To Infinity and Beyond">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/26/%E6%98%9F%E7%A7%AF%E7%9B%98%C2%B74%EF%BD%9C%E4%BE%8B%E5%AD%90%E4%BB%80%E4%B9%88%E7%9A%84%E9%83%BD%E5%8E%BB%E6%AD%BB%E5%90%A7/" class="post-title-link" itemprop="url">星积盘·4｜例子什么的都去死吧</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-26 21:40:26" itemprop="dateCreated datePublished" datetime="2020-02-26T21:40:26+08:00">2020-02-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-07-08 11:11:14" itemprop="dateModified" datetime="2021-07-08T11:11:14+08:00">2021-07-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%98%9F%E7%A7%AF%E7%9B%98/" itemprop="url" rel="index"><span itemprop="name">星积盘</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/02/26/%E6%98%9F%E7%A7%AF%E7%9B%98%C2%B74%EF%BD%9C%E4%BE%8B%E5%AD%90%E4%BB%80%E4%B9%88%E7%9A%84%E9%83%BD%E5%8E%BB%E6%AD%BB%E5%90%A7/" class="post-meta-item leancloud_visitors" data-flag-title="星积盘·4｜例子什么的都去死吧" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/02/26/%E6%98%9F%E7%A7%AF%E7%9B%98%C2%B74%EF%BD%9C%E4%BE%8B%E5%AD%90%E4%BB%80%E4%B9%88%E7%9A%84%E9%83%BD%E5%8E%BB%E6%AD%BB%E5%90%A7/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/26/%E6%98%9F%E7%A7%AF%E7%9B%98%C2%B74%EF%BD%9C%E4%BE%8B%E5%AD%90%E4%BB%80%E4%B9%88%E7%9A%84%E9%83%BD%E5%8E%BB%E6%AD%BB%E5%90%A7/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="星积盘·4｜例子什么的都去死吧"><a href="#星积盘·4｜例子什么的都去死吧" class="headerlink" title="星积盘·4｜例子什么的都去死吧"></a>星积盘·4｜例子什么的都去死吧</h1><blockquote>
+<p>我不准备以讲故事的方式来阐明一个论点。经过选择的例子对任何有价值的概括来说从来都不是重要的论据。</p>
+<p>——《自私的基因》</p>
+</blockquote>
+<p>看到这句话，顿时非常想吐槽高中的作文教育甚至TOEFL写作。我不止一次被老师指出文章“例子不足，太抽象”，原因很简单，一味的论证完全足以写出相当的字数，而我非常不想举例子——缺乏深入调研的情况下怎么能轻易举出有价值的典型案例呢？所以往往只能套用《作文素材》中那种大而无当的垃圾例子，有时为了想例子、给例子腾出空间，反而会省略甚至丢弃很多重要的论证，于是作文就成为了作秀，在思想的体现方面可以说是几乎毫无价值的。</p>
+<p>对TOEFL作文我都还可以理解，毕竟作为语言考试，监测考生对现实例子的描述能力也是有必要的。但对于高考语文，明明要求写论述文，却把“举例子”当成了几乎不能或缺的论证方法，不得不说我为之感到羞耻。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/11/%E5%A6%82%E4%BD%95%E9%95%BF%E4%B9%85%E5%9C%B0%E7%95%99%E4%BD%8F%E4%BF%A1%E6%81%AF%EF%BC%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Andy Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="To Infinity and Beyond">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/11/%E5%A6%82%E4%BD%95%E9%95%BF%E4%B9%85%E5%9C%B0%E7%95%99%E4%BD%8F%E4%BF%A1%E6%81%AF%EF%BC%9F/" class="post-title-link" itemprop="url">如何长久地留住信息？</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-11 17:43:37" itemprop="dateCreated datePublished" datetime="2020-02-11T17:43:37+08:00">2020-02-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-07-08 11:11:14" itemprop="dateModified" datetime="2021-07-08T11:11:14+08:00">2021-07-08</time>
+              </span>
+
+          
+            <span id="/2020/02/11/%E5%A6%82%E4%BD%95%E9%95%BF%E4%B9%85%E5%9C%B0%E7%95%99%E4%BD%8F%E4%BF%A1%E6%81%AF%EF%BC%9F/" class="post-meta-item leancloud_visitors" data-flag-title="如何长久地留住信息？" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/02/11/%E5%A6%82%E4%BD%95%E9%95%BF%E4%B9%85%E5%9C%B0%E7%95%99%E4%BD%8F%E4%BF%A1%E6%81%AF%EF%BC%9F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/11/%E5%A6%82%E4%BD%95%E9%95%BF%E4%B9%85%E5%9C%B0%E7%95%99%E4%BD%8F%E4%BF%A1%E6%81%AF%EF%BC%9F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="如何长久地留住信息？"><a href="#如何长久地留住信息？" class="headerlink" title="如何长久地留住信息？"></a>如何长久地留住信息？</h1><p>众所周知，中国互联网有着无数个比武汉红会大得多的黑洞，其大小与分布密度与公司道德素质浓度成反比，但普遍分布于微信、微博、知乎等各种社交媒体中。</p>
+<p>这使得如何留下那些自己觉得有价值的信息成了非常重要的事。</p>
+<p>为此我们要做的事有三件：<strong>留存，索引，以及分享</strong>。</p>
+<p><strong>评分标准：5 - 良好；3 - 一般；1 - 勉强能用；0 - 不可用。</strong></p>
+<p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/11/%E5%A6%82%E4%BD%95%E9%95%BF%E4%B9%85%E5%9C%B0%E7%95%99%E4%BD%8F%E4%BF%A1%E6%81%AF%EF%BC%9F/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/06/%E6%98%9F%E7%A7%AF%E7%9B%98%C2%B73%EF%BD%9C%E7%A7%91%E5%B9%BB%E8%BF%B7%E7%9A%84%E6%B5%AA%E6%BC%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Andy Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="To Infinity and Beyond">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/06/%E6%98%9F%E7%A7%AF%E7%9B%98%C2%B73%EF%BD%9C%E7%A7%91%E5%B9%BB%E8%BF%B7%E7%9A%84%E6%B5%AA%E6%BC%AB/" class="post-title-link" itemprop="url">星积盘·3｜科幻迷的浪漫</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-06 13:53:13" itemprop="dateCreated datePublished" datetime="2020-02-06T13:53:13+08:00">2020-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-07-08 11:11:14" itemprop="dateModified" datetime="2021-07-08T11:11:14+08:00">2021-07-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%98%9F%E7%A7%AF%E7%9B%98/" itemprop="url" rel="index"><span itemprop="name">星积盘</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/02/06/%E6%98%9F%E7%A7%AF%E7%9B%98%C2%B73%EF%BD%9C%E7%A7%91%E5%B9%BB%E8%BF%B7%E7%9A%84%E6%B5%AA%E6%BC%AB/" class="post-meta-item leancloud_visitors" data-flag-title="星积盘·3｜科幻迷的浪漫" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/02/06/%E6%98%9F%E7%A7%AF%E7%9B%98%C2%B73%EF%BD%9C%E7%A7%91%E5%B9%BB%E8%BF%B7%E7%9A%84%E6%B5%AA%E6%BC%AB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/06/%E6%98%9F%E7%A7%AF%E7%9B%98%C2%B73%EF%BD%9C%E7%A7%91%E5%B9%BB%E8%BF%B7%E7%9A%84%E6%B5%AA%E6%BC%AB/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="星积盘·3｜科幻迷的浪漫"><a href="#星积盘·3｜科幻迷的浪漫" class="headerlink" title="星积盘·3｜科幻迷的浪漫"></a>星积盘·3｜科幻迷的浪漫</h1><p>只是想安利一部短片 <em>Shelter</em> ，点子、配乐与制作都非常棒，先不剧透了，大家看吧～</p>
+<p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/06/%E6%98%9F%E7%A7%AF%E7%9B%98%C2%B73%EF%BD%9C%E7%A7%91%E5%B9%BB%E8%BF%B7%E7%9A%84%E6%B5%AA%E6%BC%AB/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Andy Lee</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Andy Lee</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'AsUQoitm3ewHXBWhoFkm0JSA-MdYXbMMI',
+      appKey     : 'XBCvwe2fQgvlwPXowDaYVpiv',
+      placeholder: "来发表你的评论吧～  邮箱和个人网站不会被公开（＾ν＾）",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
