@@ -5,6 +5,8 @@ categories: Programming
 tags:
 ---
 
+ <!-- more -->
+
 # 基于Github的博客和笔记系统
 
 打算把正儿八经的笔记集体迁移到文件系统中，结合GitHub备份和在线浏览。同时也方便把好的笔记直接转换为博客。
@@ -44,6 +46,8 @@ date: $(date '+%Y-%m-%d %H:%M:%S')
 categories:
 tags:
 ---
+
+ <!-- more -->
 
 $(cat "$filename")
 " > "$filename"
