@@ -21,4 +21,4 @@ tags:
 mv FoxitPDFReaderUpdateService.app FoxitPDFReaderUpdateService.app.bak
 ```
 
- 之后似乎不会重启了。
+ 之后似乎不会自动启动了。
