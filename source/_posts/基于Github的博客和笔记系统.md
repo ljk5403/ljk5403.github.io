@@ -9,6 +9,10 @@ tags:
 
 # 基于Github的博客和笔记系统
 
+[TOC]
+
+
+
 打算把正儿八经的笔记集体迁移到文件系统中，结合GitHub备份和在线浏览。同时也方便把好的笔记直接转换为博客。
 
 为此，建立了一个私有仓库Notes，博客依旧放在GitHub Pages。
@@ -17,18 +21,26 @@ tags:
 
 使用 GitHub Workflow 自动从Notes构建Blog：
 
-1. 监听资源仓库的commit，推送到blog构建区域（blog仓库的分支：blog_factory）
+1. 监听资源仓库的commit，发现特定文件夹(BlogSource)更新后推送到blog构建区域（blog仓库的分支：blog_factory）
 2. 构建blog，推送到GitHub Pages（即log仓库的分支：master）
 
 ## 实现
 
+### 笔记方法简述
+
+使用markdown作为笔记格式，图片、附件等资源放在同名的`.res`后缀文件夹下（部分老版本仍使用`.src`后缀）。配合 Typora 使用可以自动将拖动到文中的图片拷贝到同名`.res`后缀文件夹。
+
+> 尽量不要在文件名中出现空格和一些英文标点
+
 ### 本地整理 Blog
 
-#### blog存放的原则：
+#### blog存放的原则
+
+blog源文件和各种资源文件放置在`Notes/BlogSource`，以下均以上述文件夹为当前目录。
 
 由笔记直接整理出的，应当软链接回笔记。变动较大的，也应该在笔记版本上注明存在blog版本。
 
-#### 添加blog头：
+#### 添加blog头
 
 使用 `./header_blog.sh $filename` 来快捷添加blog头，并启动vim来编辑。
 
@@ -63,12 +75,12 @@ vim "$filename"
 file="$*"
 if [ -f "$file" ] && [ -n "$file" ]
 then
-  if [ -d "${file%.*}.src" ]
+  if [ -d "${file%.*}.res" ]
   then
     sed -e "s/\!\[\](/\!\[\](\/image\//g" "$file" >"$file.temp"
     mv "$file" "${file%.*}.source.md"
     mv "$file.temp" "$file"
-    mv "${file%.*}.src" image/
+    mv "${file%.*}.res" image/
   fi
   mv "$file" _posts/
 else
