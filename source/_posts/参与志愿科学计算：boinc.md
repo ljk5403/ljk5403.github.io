@@ -58,8 +58,6 @@ tags:
 
 根据个人的考虑，可以设置科学计算的运行强度与时间分配，确保不会影响正常占用。
 
-注意：一般调整完后需要重启boinc，或者`boinccmd --read_global_prefs_override`。
-
 ### 方法一：在项目网站上设置
 
 #### www.worldcommunitygrid.org
