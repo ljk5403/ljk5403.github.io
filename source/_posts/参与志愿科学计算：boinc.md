@@ -7,9 +7,11 @@ tags:
 
 # 参与志愿科学计算：boinc
 
-本文介绍一种最为常用的参与志愿计算的方法——使用boinc，即**伯克利开放式网络计算平台(Berkeley Open Infrastructure for Network Computing)**，来利用自己空闲的计算机/服务器给科学的发展贡献一些微末的力量。愿涓涓细流可汇成江河湖海。
+本文介绍一种最为常用的参与志愿计算的方法——使用boinc，即 **伯克利开放式网络计算平台(Berkeley Open Infrastructure for Network Computing)** ，来利用自己空闲的计算机/服务器给科学的发展贡献一些微末的力量。愿涓涓细流可汇成江河湖海。
 
 本文作者仅在Ubuntu和Termux（Android上的终端模拟器）使用过boinc，如读者知晓其他平台上的使用方法和注意事项，欢迎在下方评论区交流。
+
+ <!-- more -->
 
 ## 注册账号
 
@@ -64,7 +66,7 @@ tags:
 
 [Account>>Profile and settings>>Devices>>Device profiles](https://www.worldcommunitygrid.org/ms/device/viewProfiles.do) 可以选择修改默认profile或新建profile。之后到 [Account>>Profile and settings>>Devices>>Device management](https://www.worldcommunitygrid.org/ms/device/viewDevices.do) 选择具体的设备来修改配置即可。
 
-#### [scienceunited.org](https://scienceunited.org/)
+#### scienceunited.org
 
 在[Computing settings](https://scienceunited.org/su_compute_prefs.php)修改。
 
