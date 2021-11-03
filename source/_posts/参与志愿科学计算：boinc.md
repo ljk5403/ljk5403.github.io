@@ -70,7 +70,7 @@ tags:
 
 ### 方法二：修改 boinc 本地设置
 
-通过修改`/etc/boinc-client/global_prefs_override.xml`文件，可以本地覆盖项目网站设定的选项。这个设定是全局的，不会因为项目的改变而改变。
+通过修改`/etc/boinc-client/global_prefs_override.xml`文件（或者`$boincDir/global_prefs_override.xml`），可以本地覆盖项目网站设定的选项。这个设定是全局的，不会因为项目的改变而改变。
 
 具体参数参考：<https://boinc.berkeley.edu/trac/wiki/Prefs2>
 
@@ -95,3 +95,31 @@ boinccmd --read_global_prefs_override
 ```
 
 修改完配置后亦可进入top/htop/btop中检查一下进程是否正常地开始运行。
+
+#### 性能调校
+
+在VPS上性能调校主要是针对部分厂商的cpu使用量限制来定，比如bandwagon的一些VPS只允许每个小时内使用量不超过1核的25%，不然之后一个小时内会限制到上述水平，之后再恢复；这种情况下，使用上述两个参数限制即可。
+
+对于Termux（Android 平台），我们需要考虑到手机在长期高负荷运行下的稳定性问题：笔者个人使用Pixel 2( Snapdragon 835, 4大核4小核) 在使用3个以上核心时大概只能持续一天左右，必定会遇到未知原因的崩溃（表现为Termux整个被杀掉）。
+
+因此目前的策略为限制只使用2个核心：
+
+```xml
+<global_preferences>
+  <cpu_usage_limit>100</cpu_usage_limit><!--cpu占用量（如: 每1s占用0.6s的cpu）-->
+  <max_ncpus_pct>25</max_ncpus_pct> <!--使用最多多少个cpu（按百分比计算）; 注意<max_cpus>已被废弃！-->
+  <!--将默认使用效率较高的核心-->
+</global_preferences>
+```
+
+同时也在测试使用尽可能多的核心，但限制单位时间内使用量的方法：
+
+```xml
+<global_preferences>
+  <cpu_usage_limit>80</cpu_usage_limit><!--cpu占用量（如: 每1s占用0.6s的cpu）-->
+  <max_ncpus_pct>100</max_ncpus_pct> <!--使用最多多少个cpu（按百分比计算）; 注意<max_cpus>已被废弃！-->
+  <!--将默认使用效率较高的核心-->
+</global_preferences>
+```
+
+> Note: 根据测试，boinc总会优先使用大核
