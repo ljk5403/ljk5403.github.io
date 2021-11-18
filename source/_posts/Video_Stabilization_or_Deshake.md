@@ -61,9 +61,26 @@ deshakemov(){
 
 ## 效果对比
 
-b站视频：
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
+    <iframe src="//www.bilibili.com/video/BV1Gf4y1K7BZ/" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;">
+    </iframe>
+</div>
 
-顺便放一下并排现实视频的代码：
+具体效果可参考b站视频：
+
+[修复抖动对比：黄腰柳莺鸣](https://www.bilibili.com/video/BV1Gf4y1K7BZ/)
+
+[修复抖动对比·原始版本：黄腰柳莺鸣](https://www.bilibili.com/video/BV1of4y1N7xe/)
+
+[修复抖动对比·stabilizo.com：黄腰柳莺鸣](https://www.bilibili.com/video/BV17q4y1671G/)
+
+[修复抖动对比·ffmpeg/deshake：黄腰柳莺鸣](https://www.bilibili.com/video/BV1pL4y1i7Qj/)
+
+[修复抖动对比·ffmpeg/vib.stab：黄腰柳莺鸣](https://www.bilibili.com/video/BV1dL411T7vp/)
+
+
+
+顺便放一下并排组合视频的代码：
 
 ```bash
 ffmpeg -i DSCN8805.MOV -i DSCN8805_stabilizo.mov -i DSCN8805_deshaked.mp4 -i DSCN8805_vidstab_macos_i5-5350U.mp4 -filter_complex \
