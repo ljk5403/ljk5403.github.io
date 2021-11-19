@@ -102,17 +102,11 @@ boinccmd --read_global_prefs_override
 
 对于Termux（Android 平台），我们需要考虑到手机在长期高负荷运行下的稳定性问题：笔者个人使用Pixel 2( Snapdragon 835, 4大核4小核) 在使用3个以上核心时大概只能持续一天左右，必定会遇到未知原因的崩溃（表现为Termux整个被杀掉）。
 
-因此目前的策略为限制只使用2个核心：
+一阵子之后突然开悟了：奔溃的原因是内存不足。Rosetta项目单个进程能占用150M左右的内存，开八个直接吃掉1.2G，稍有波动即达到内存极限，被杀掉情有可原。
 
-```xml
-<global_preferences>
-  <cpu_usage_limit>100</cpu_usage_limit><!--cpu占用量（如: 每1s占用0.6s的cpu）-->
-  <max_ncpus_pct>25</max_ncpus_pct> <!--使用最多多少个cpu（按百分比计算）; 注意<max_cpus>已被废弃！-->
-  <!--将默认使用效率较高的核心-->
-</global_preferences>
-```
+所以后来的处理方式是不参加Rosetta项目（在scienceunited.org上可以勾选排除掉）。
 
-同时也在测试使用尽可能多的核心，但限制单位时间内使用量的方法：
+为了确保温度不要过高，使用了如下的配置：
 
 ```xml
 <global_preferences>
