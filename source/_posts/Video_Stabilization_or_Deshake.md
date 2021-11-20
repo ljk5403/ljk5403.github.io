@@ -61,13 +61,6 @@ deshakemov(){
 
 ## 效果对比
 
-<!--
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
-    <iframe src="//www.bilibili.com/video/BV1Gf4y1K7BZ/" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;">
-    </iframe>
-</div>
--->
-
 具体效果可参考b站视频：
 
 [修复抖动对比：黄腰柳莺鸣](https://www.bilibili.com/video/BV1Gf4y1K7BZ/)
