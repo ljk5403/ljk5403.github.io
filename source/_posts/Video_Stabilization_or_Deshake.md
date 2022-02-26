@@ -85,6 +85,7 @@ ffmpeg -i DSCN8805.MOV -i DSCN8805_stabilizo.mov -i DSCN8805_deshaked.mp4 -i DSC
  [3]drawtext=text='vib.stab':fontsize=50:x=(text_w)/2:y=(text_h)/2[v3];
  [v0][v1][v2][v3]xstack=inputs=4:layout=0_0|w0_0|0_h0|w0_h0[v]" \
 -map "[v]" stack.mp4
+# 参考： https://stackoverflow.com/questions/11552565/vertically-or-horizontally-stack-mosaic-several-videos-using-ffmpeg
 ```
 
 数据对比：
