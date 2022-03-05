@@ -202,6 +202,7 @@ links_settings:
 
 links:
   #Title: http://yoursite.com
+  HamiltonHuaji: https://hamiltonhuaji.github.io/
 
 # Table of Contents in the Sidebar
 # Front-matter variable (unsupport wrap expand_all).
