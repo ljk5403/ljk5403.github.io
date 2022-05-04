@@ -28,6 +28,8 @@ jobs:
       - name: Install Dependencies
         run: |
           npm install
+          npm uninstall hexo-renderer-marked
+          npm install hexo-renderer-pandoc
 
           # 从之前设置的 secret 获取部署私钥
       - name: Setup SSH Keys and known_hosts
