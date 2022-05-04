@@ -27,7 +27,7 @@ jobs:
       # 安装依赖
       - name: Install Dependencies
         run: |
-          apt install pandoc -y
+          sudo apt install pandoc -y
           npm install
           npm uninstall hexo-renderer-marked
           npm install hexo-renderer-pandoc
