@@ -26,6 +26,7 @@ jobs:
 
             # 安装依赖
       - name: Install Dependencies
+        uses: docker://pandoc/core:2.9
         run: |
           npm install
           npm uninstall hexo-renderer-marked
