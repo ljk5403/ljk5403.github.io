@@ -137,8 +137,12 @@ jobs:
 
 ### blog_factory 自动构建并推送到GitHub Pages
 
+
+
 ```yml
 # blog_local/.github/workflows/blogBuilder.yml
+# 可能已经被修改！建议直接查看源文件
+# https://github.com/ljk5403/ljk5403.github.io/blob/blog_factory/.github/workflows/blogBuilder.yml
 name: Hexo Deploy
 on:
   push:
@@ -165,12 +169,16 @@ jobs:
         with:
           node-version: '14'
 
-            # 安装依赖
+      # 安装依赖
       - name: Install Dependencies
         run: |
+          wget https://github.com/jgm/pandoc/releases/download/2.10.1/pandoc-2.10.1-1-amd64.deb
+          sudo dpkg -i pandoc-2.10.1-1-amd64.deb
+          npm uninstall hexo-renderer-marked
+          npm install hexo-renderer-pandoc
           npm install
 
-          # 从之前设置的 secret 获取部署私钥
+      # 从之前设置的 secret 获取部署私钥
       - name: Setup SSH Keys and known_hosts
         env:
           DEPLOY_SECRET: ${{ secrets.BLOG_DEPLOY_SECRET }}
@@ -183,7 +191,7 @@ jobs:
           git config --global user.name $GIT_USER
           git config --global user.email $GIT_EMAIL
 
-          # 生成并部署 `npx hexo clean && npx hexo g -d` or `npm run deploy`
+      # 生成并部署 `npx hexo clean && npx hexo g -d` or `npm run deploy`
       - name: Deploy
         run: |
           npx hexo clean && npx hexo g -d

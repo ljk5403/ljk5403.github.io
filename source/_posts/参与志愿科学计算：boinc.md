@@ -9,6 +9,8 @@ tags:
 
 本文介绍一种最为常用的参与志愿计算的方法——使用boinc，即 **伯克利开放式网络计算平台(Berkeley Open Infrastructure for Network Computing)** ，来利用自己空闲的计算机/服务器给科学的发展贡献一些微末的力量。愿涓涓细流可汇成江河湖海。
 
+> 当然也可以用来在必要时让电脑兼职电暖器（bushi）
+
 本文作者仅在Ubuntu和Termux（Android上的终端模拟器）使用过boinc，如读者知晓其他平台上的使用方法和注意事项，欢迎在下方评论区交流。
 
  <!-- more -->
@@ -33,6 +35,16 @@ tags:
 
    - 第一次运行可能失败，需要在`$boincDir`下`chmod 644 gui_rpc_auth.cfg`
    - 此后运行`boinccmd`务必到`$boincDir`下运行，不然会报错
+   
+### Arch Linux
+
+1. 安装boinc：`sudo pacman -S boinc`
+
+2. 启动服务：`sudo systemctl enable --now boinc-client.service`
+
+> 在一般情况下默认的`$boincDir=/var/lib/boinc`
+
+​     
 
 
 ## 添加项目到计算机
@@ -54,6 +66,18 @@ tags:
 
 
 
+## 常用查看状态命令
+
+```bash
+# 查看状态
+boinccmd --get_state 
+# 可以配合 htop、 btop 来查看运行情况
+```
+
+
+
+
+
 ## 调整设定
 
 根据个人的考虑，可以设置科学计算的运行强度与时间分配，确保不会影响正常占用。
@@ -70,7 +94,7 @@ tags:
 
 ### 方法二：修改 boinc 本地设置
 
-通过修改`/etc/boinc-client/global_prefs_override.xml`文件（或者`$boincDir/global_prefs_override.xml`），可以本地覆盖项目网站设定的选项。这个设定是全局的，不会因为项目的改变而改变。
+通过新建并修改`/etc/boinc-client/global_prefs_override.xml`文件（或者`$boincDir/global_prefs_override.xml`），可以本地覆盖项目网站设定的选项。这个设定是全局的，不会因为项目的改变而改变。
 
 具体参数参考：<https://boinc.berkeley.edu/trac/wiki/Prefs2>
 
