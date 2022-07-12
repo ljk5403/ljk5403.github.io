@@ -99,9 +99,3 @@ search:
   field: post
   format: html
   limit: 10000
-
-# Hide figurecaption of pandoc
-# ref: https://blog.csdn.net/qq_32767041/article/details/105084853
-pandoc:
-  extensions:
-    - '-implicit_figures'
