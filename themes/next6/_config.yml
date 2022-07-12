@@ -505,12 +505,6 @@ math:
     # See: https://mhchem.github.io/MathJax-mhchem/
     mhchem: false
 
-# Hide figurecaption of pandoc
-# ref: https://blog.csdn.net/qq_32767041/article/details/105084853
-pandoc:
-  extensions:
-    - '-implicit_figures'
-
   # hexo-renderer-markdown-it-plus (or hexo-renderer-markdown-it with markdown-it-katex plugin) required for full Katex support.
   katex:
     enable: false
