@@ -3,8 +3,8 @@ on:
   push:
     branches:
       - blog_factory
-    paths:
-      - source/**
+#    paths:
+#      - source/**
 
 env:
   GIT_USER: ljk5403
