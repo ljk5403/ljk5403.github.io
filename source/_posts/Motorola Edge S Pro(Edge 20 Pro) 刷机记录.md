@@ -29,7 +29,7 @@ Motorola Edge S Pro，大陆以外称为Edge 20 Pro，一款性价比优良的�
 
 Motorola的原厂包似乎都不带 `flash_all.sh` 啥的工具，于是只能找解说，发现其实有个等效的 `flashfile.xml` ，但翻译出来执行比较麻烦，找一找果然又发现先辈写的自动化工具，大概就是模仿windows上的 Motorola 官方刷原厂包工具 RSD Lite，写了一个脚本来实现。链接如下：<https://rootjunky.com/rsd-lite-mac-linux/>
 
-按照链接中的来，很顺利地刷完，开机，发现还是略有区别：连接wifi无法通过扫码了，直接试图连接 Google Service——当然是失败了，还好没有强求一定要连接上。
+按照链接中的来，注意要进入 `bootloader / AP fastboot mode` 的状态，很顺利地刷完，开机，发现还是略有区别：连接wifi无法通过扫码了，直接试图连接 Google Service——当然是失败了，还好没有强求一定要连接上。
 
 之后就是按照[ Magisk 的文档](https://github.com/topjohnwu/Magisk/blob/master/docs/install.md)来安装了：`adb install` 把 Magisk app 先整上，然后`adb push`把刚刚解压出的 `boot.img` 放上手机，用 Magisk app 来 patch 一下，再 `adb pull` 回来刷：
 
@@ -50,3 +50,6 @@ fastboot flash boot magisk_patched-xxxxxxxxxxx.img # 刷写patch后的boot.img
 
 > 不知不觉一个下午就过去了，大致先整活到这。 2022/07/29
 
+
+
+> 因为欧版不能改左侧一键触达的功能，还是决定换回国行了。2022/07/30
