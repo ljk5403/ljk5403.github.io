@@ -996,3 +996,8 @@ vendors:
 css: css
 js: js
 images: images
+
+
+# 自定义结束语：https://wangc1993.github.io/2019/01/10/6/
+passage_end_tag:
+  enabled: true
