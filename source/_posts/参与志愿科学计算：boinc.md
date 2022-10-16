@@ -98,6 +98,8 @@ boinccmd --get_state
 
 具体参数参考：<https://boinc.berkeley.edu/trac/wiki/Prefs2>
 
+以及：<https://boinc.berkeley.edu/trac/wiki/ProjectOptions>
+
 对于`global_prefs_override.xml`的具体描述：<https://boinc.berkeley.edu/wiki/Global_prefs_override.xml>
 
 > 另有一个链接的描述比较老旧，不少已经不可用：<https://boinc.berkeley.edu/trac/wiki/PrefsOverride>

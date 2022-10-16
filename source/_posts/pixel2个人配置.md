@@ -65,8 +65,15 @@ adb sideload ota_file.zip   #此处 ota_file.zip 替换为下载的OTA包
 
 等待进度加载完毕即可。
 
-
 #### Step 3: 恢复Magisk
+
+先导出安装的 `boot.img`，在手机上用Magisk patch 后导出到电脑。`adb reboot bootloader` 到 bootloader，而后直接 boot pactch后的包：`fastboot boot magisk_patched-xxxxxxxx.img`。此时只是临时更换引导了`boot.img`，因此有任何错误都不会对手机造成损伤。成功启动后即临时获得了root权限，此时再在 Magisk 中选择直接安装即可。也可以重新boot 到 bootloader，再直接刷入包：`fastboot flash boot magisk_patched-xxxxxxxx.img`，之后重启 `fastboot reboot`。
+
+
+
+
+
+#### 以下是旧方法，没必要
 
 安装完OTA更新后，在 recovery 选择`reboot to bootloader`，将重启到bootloader；或者也可以选择重启，再在命令行输入：
 
@@ -257,5 +264,4 @@ Finished. Total time: 73.327s
 
 >参考链接：  
 >[Pixel 手机升级保留基带和数据](https://www.jianshu.com/p/b62e174f5e44)
-
 
