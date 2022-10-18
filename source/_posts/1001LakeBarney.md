@@ -67,6 +67,10 @@ tags:
 
 ### [Long-billed Dowitcher](https://ebird.org/species/lobdow)
 
+![DSCN8546](/image/1001LakeBarney.res/DSCN8707.JPG)
+
+![DSCN8546](/image/1001LakeBarney.res/DSCN8886.JPG)
+
 
 
 ### [American Golden-Plover](https://ebird.org/species/amgplo)
