@@ -23,9 +23,17 @@ tags:
 
 ## 安装
 
-### Ubuntu
+### Ubuntu/Debian
 
-直接 `sudo apt install boinc-client `。之后 `sudo service boinc-client start` 即可
+直接 `sudo apt install boinc-client `。之后 `sudo service boinc-client start` 即可。
+
+> 如使用中有报错`Can't get RPC password: /var/lib/boinc-client/gui_rpc_auth.cfg exists but can't be read.  See https://boinc.berkeley.edu/gui_rpc.php`，修改权限如下即可：
+>
+> ```bash
+> sudo chmod 644 /etc/boinc-client/gui_rpc_auth.cfg 
+> ```
+>
+> ref: <https://boinc.berkeley.edu/forum_thread.php?id=14013>
 
 ### Termux
 
