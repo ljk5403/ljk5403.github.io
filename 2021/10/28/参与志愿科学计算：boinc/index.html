@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="参与志愿科学计算：boinc 本文介绍一种最为常用的参与志愿计算的方法——使用boinc，即 伯克利开放式网络计算平台(Berkeley Open Infrastructure for Network Computing) ，来利用自己空闲的计算机&#x2F;服务器给科学的发展贡献一些微末的力量。愿涓涓细流可汇成江河湖海。  当然也可以用来在必要时让电脑兼职电暖器（bushi）  本文作者仅在Ubuntu和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="参与志愿科学计算：boinc">
+<meta property="og:url" content="http://yoursite.com/2021/10/28/%E5%8F%82%E4%B8%8E%E5%BF%97%E6%84%BF%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%EF%BC%9Aboinc/index.html">
+<meta property="og:site_name" content="To Infinity and Beyond">
+<meta property="og:description" content="参与志愿科学计算：boinc 本文介绍一种最为常用的参与志愿计算的方法——使用boinc，即 伯克利开放式网络计算平台(Berkeley Open Infrastructure for Network Computing) ，来利用自己空闲的计算机&#x2F;服务器给科学的发展贡献一些微末的力量。愿涓涓细流可汇成江河湖海。  当然也可以用来在必要时让电脑兼职电暖器（bushi）  本文作者仅在Ubuntu和">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-10-28T11:21:39.000Z">
+<meta property="article:modified_time" content="2023-05-24T02:02:15.875Z">
+<meta property="article:author" content="Andy Lee">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2021/10/28/%E5%8F%82%E4%B8%8E%E5%BF%97%E6%84%BF%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%EF%BC%9Aboinc/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>参与志愿科学计算：boinc | To Infinity and Beyond</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">To Infinity and Beyond</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/28/%E5%8F%82%E4%B8%8E%E5%BF%97%E6%84%BF%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%EF%BC%9Aboinc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Andy Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="To Infinity and Beyond">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          参与志愿科学计算：boinc
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-10-28 19:21:39" itemprop="dateCreated datePublished" datetime="2021-10-28T19:21:39+08:00">2021-10-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-05-24 10:02:15" itemprop="dateModified" datetime="2023-05-24T10:02:15+08:00">2023-05-24</time>
+              </span>
+
+          
+            <span id="/2021/10/28/%E5%8F%82%E4%B8%8E%E5%BF%97%E6%84%BF%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%EF%BC%9Aboinc/" class="post-meta-item leancloud_visitors" data-flag-title="参与志愿科学计算：boinc" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="参与志愿科学计算boinc">参与志愿科学计算：boinc</h1>
+<p>本文介绍一种最为常用的参与志愿计算的方法——使用boinc，即 <strong>伯克利开放式网络计算平台(Berkeley Open Infrastructure for Network Computing)</strong> ，来利用自己空闲的计算机/服务器给科学的发展贡献一些微末的力量。愿涓涓细流可汇成江河湖海。</p>
+<blockquote>
+<p>当然也可以用来在必要时让电脑兼职电暖器（bushi）</p>
+</blockquote>
+<p>本文作者仅在Ubuntu和Termux（Android上的终端模拟器）使用过boinc，如读者知晓其他平台上的使用方法和注意事项，欢迎在下方评论区交流。</p>
+<p><span id="more"></span></p>
+<h2 id="注册账号">注册账号</h2>
+<p>为了参与不同的项目，我们首先需要注册项目的账号。下文以<a target="_blank" rel="noopener" href="https://www.worldcommunitygrid.org/">www.worldcommunitygrid.org</a> 和 <a target="_blank" rel="noopener" href="https://scienceunited.org/">scienceunited.org</a> 为例，直接上官网注册账号即可。更多的项目可以参考Boinc的官网：https://boinc.berkeley.edu/projects.php</p>
+<blockquote>
+<p>Science United 似乎是 Boinc 官方制作的一个平台（同为 UCB 设立），可以分配多个平台的计算任务，但作者个人使用中感觉任务分发的优先级似乎并不高：World Community Grid 也加入了 Science United，但我几乎没有在 Science United 的账号下被分配到 World Community Grid 中的任务，与此同时另一台机器上的 World Community Grid 账户满负荷运行。</p>
+</blockquote>
+<h2 id="安装">安装</h2>
+<h3 id="ubuntudebian">Ubuntu/Debian</h3>
+<p>直接 <code>sudo apt install boinc-client</code>。之后 <code>sudo service boinc-client start</code> 即可。</p>
+<blockquote>
+<p>如使用中有报错<code>Can't get RPC password: /var/lib/boinc-client/gui_rpc_auth.cfg exists but can't be read.  See https://boinc.berkeley.edu/gui_rpc.php</code>，修改权限如下即可：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 644 /etc/boinc-client/gui_rpc_auth.cfg </span><br></pre></td></tr></table></figure>
+<p>ref: <a target="_blank" rel="noopener" href="https://boinc.berkeley.edu/forum_thread.php?id=14013" class="uri">https://boinc.berkeley.edu/forum_thread.php?id=14013</a></p>
+</blockquote>
+<h3 id="termux">Termux</h3>
+<ol type="1">
+<li><p>安装boinc：<code>apt install boinc</code></p></li>
+<li><p>（因为没有service所以只能这样确保后台运行）开一个screen，创建一个单独的文件夹<code>$boincDir</code>，之后运行<code>boinc -dir=$boincDir</code></p>
+<ul>
+<li>第一次运行可能失败，需要在<code>$boincDir</code>下<code>chmod 644 gui_rpc_auth.cfg</code></li>
+<li>此后运行<code>boinccmd</code>务必到<code>$boincDir</code>下运行，不然会报错</li>
+</ul></li>
+</ol>
+<h3 id="arch-linux">Arch Linux</h3>
+<ol type="1">
+<li><p>安装boinc：<code>sudo pacman -S boinc</code></p></li>
+<li><p>启动服务：<code>sudo systemctl enable --now boinc-client.service</code></p></li>
+</ol>
+<blockquote>
+<p>在一般情况下默认的<code>$boincDir=/var/lib/boinc</code></p>
+</blockquote>
+<p>​</p>
+<h2 id="添加项目到计算机">添加项目到计算机</h2>
+<p>使用boinccmd添加项目：</p>
+<h3 id="www.worldcommunitygrid.org">www.worldcommunitygrid.org</h3>
+<ol type="1">
+<li><code>boinccmd --lookup_account http://www.worldcommunitygrid.org &lt;username&gt; &lt;password&gt;</code> 测试是否能连接到project并获取account key</li>
+<li><code>boinccmd --host localhost --project_attach http://www.worldcommunitygrid.org &lt;Account Key&gt;</code> 添加项目，将自动在后台下载文件、运行。</li>
+</ol>
+<blockquote>
+<p>如果使用的termux，必须在<code>$boincDir</code>下执行上述命令，否则报错。</p>
+</blockquote>
+<h3 id="scienceunited.org">scienceunited.org</h3>
+<ol type="1">
+<li>添加项目需使用 <code>boinccmd --join_acct_mgr https://scienceunited.org &lt;username&gt; &lt;password&gt;</code></li>
+<li>本项目需要比较新的bionc，截止2021年10月20日，暂时不能直接用ubuntu上apt安装的bionc运行（7.9.3 x86_64-pc-linux-gnu），但可以用termux上的运行（7.16.16 aarch64-android-linux-gnu）</li>
+<li>似乎会覆盖上面www.worldcommunitygrid.org的项目，因此在链接这个项目后应当重新链接。</li>
+</ol>
+<h2 id="常用查看状态命令">常用查看状态命令</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看状态</span></span><br><span class="line">boinccmd --get_state </span><br><span class="line"><span class="comment"># 可以配合 htop、 btop 来查看运行情况</span></span><br></pre></td></tr></table></figure>
+<h2 id="调整设定">调整设定</h2>
+<p>根据个人的考虑，可以设置科学计算的运行强度与时间分配，确保不会影响正常占用。</p>
+<h3 id="方法一在项目网站上设置">方法一：在项目网站上设置</h3>
+<h4 id="www.worldcommunitygrid.org-1">www.worldcommunitygrid.org</h4>
+<p><a target="_blank" rel="noopener" href="https://www.worldcommunitygrid.org/ms/device/viewProfiles.do">Account&gt;&gt;Profile and settings&gt;&gt;Devices&gt;&gt;Device profiles</a> 可以选择修改默认profile或新建profile。之后到 <a target="_blank" rel="noopener" href="https://www.worldcommunitygrid.org/ms/device/viewDevices.do">Account&gt;&gt;Profile and settings&gt;&gt;Devices&gt;&gt;Device management</a> 选择具体的设备来修改配置即可。</p>
+<h4 id="scienceunited.org-1">scienceunited.org</h4>
+<p>在<a target="_blank" rel="noopener" href="https://scienceunited.org/su_compute_prefs.php">Computing settings</a>修改。</p>
+<h3 id="方法二修改-boinc-本地设置">方法二：修改 boinc 本地设置</h3>
+<p>通过新建并修改<code>/etc/boinc-client/global_prefs_override.xml</code>文件（或者<code>$boincDir/global_prefs_override.xml</code>），可以本地覆盖项目网站设定的选项。这个设定是全局的，不会因为项目的改变而改变。</p>
+<p>具体参数参考：<a target="_blank" rel="noopener" href="https://boinc.berkeley.edu/trac/wiki/Prefs2" class="uri">https://boinc.berkeley.edu/trac/wiki/Prefs2</a></p>
+<p>以及：<a target="_blank" rel="noopener" href="https://boinc.berkeley.edu/trac/wiki/ProjectOptions" class="uri">https://boinc.berkeley.edu/trac/wiki/ProjectOptions</a></p>
+<p>对于<code>global_prefs_override.xml</code>的具体描述：<a target="_blank" rel="noopener" href="https://boinc.berkeley.edu/wiki/Global_prefs_override.xml" class="uri">https://boinc.berkeley.edu/wiki/Global_prefs_override.xml</a></p>
+<blockquote>
+<p>另有一个链接的描述比较老旧，不少已经不可用：<a target="_blank" rel="noopener" href="https://boinc.berkeley.edu/trac/wiki/PrefsOverride" class="uri">https://boinc.berkeley.edu/trac/wiki/PrefsOverride</a></p>
+</blockquote>
+<p>常用的配置如限制cpu使用量、使用核心：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">global_preferences</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">cpu_usage_limit</span>&gt;</span>60<span class="tag">&lt;/<span class="name">cpu_usage_limit</span>&gt;</span><span class="comment">&lt;!--cpu占用量（如: 每1s占用0.6s的cpu）--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">max_ncpus_pct</span>&gt;</span>100<span class="tag">&lt;/<span class="name">max_ncpus_pct</span>&gt;</span> <span class="comment">&lt;!--使用最多多少个cpu（按百分比计算）; 注意&lt;max_cpus&gt;已被废弃！--&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--将默认使用效率较高的核心--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">global_preferences</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>修改完参数后需要重启boinc，或者使用这个命令读取配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">boinccmd --read_global_prefs_override</span><br></pre></td></tr></table></figure>
+<p>修改完配置后亦可进入top/htop/btop中检查一下进程是否正常地开始运行。</p>
+<h4 id="性能调校">性能调校</h4>
+<p>在VPS上性能调校主要是针对部分厂商的cpu使用量限制来定，比如bandwagon的一些VPS只允许每个小时内使用量不超过1核的25%，不然之后一个小时内会限制到上述水平，之后再恢复；这种情况下，使用上述两个参数限制即可。</p>
+<p>对于Termux（Android 平台），我们需要考虑到手机在长期高负荷运行下的稳定性问题：笔者个人使用Pixel 2( Snapdragon 835, 4大核4小核) 在使用3个以上核心时大概只能持续一天左右，必定会遇到未知原因的崩溃（表现为Termux整个被杀掉）。</p>
+<p>一阵子之后突然开悟了：崩溃的原因是内存不足。Rosetta项目单个进程能占用150M左右的内存，开八个直接吃掉1.2G，稍有波动即达到内存极限，被杀掉情有可原。</p>
+<p>所以后来的处理方式是不参加Rosetta项目（在scienceunited.org上可以勾选排除掉）。</p>
+<p>为了确保温度不要过高，使用了如下的配置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">global_preferences</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">cpu_usage_limit</span>&gt;</span>80<span class="tag">&lt;/<span class="name">cpu_usage_limit</span>&gt;</span><span class="comment">&lt;!--cpu占用量（如: 每1s占用0.6s的cpu）--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">max_ncpus_pct</span>&gt;</span>100<span class="tag">&lt;/<span class="name">max_ncpus_pct</span>&gt;</span> <span class="comment">&lt;!--使用最多多少个cpu（按百分比计算）; 注意&lt;max_cpus&gt;已被废弃！--&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--将默认使用效率较高的核心--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">global_preferences</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Note: 根据测试，boinc总会优先使用大核</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    <div>
+        
+        <div style="text-align:center;color: #ccc;font-size:14px;">-----------------------<span style="margin: 0 10px;">如有留言，请联系 <a href="mailto:ljk5403@outlook.com">ljk5403@outlook.com</a></span>-----------------------</div>
+        
+    </div>
+</div>
+
+      
+    </div>
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/10/04/%E5%85%B3%E9%97%AD%E6%81%BC%E4%BA%BA%E7%9A%84%20FoxitPDFReaderUpdateService%20(on%20macOS)/" rel="prev" title="关闭恼人的 FoxitPDFReaderUpdateService (on macOS)">
+      <i class="fa fa-chevron-left"></i> 关闭恼人的 FoxitPDFReaderUpdateService (on macOS)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/11/18/Video_Stabilization_or_Deshake/" rel="next" title="视频抖动修复 Video Stabilization or Deshake">
+      视频抖动修复 Video Stabilization or Deshake <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E4%B8%8E%E5%BF%97%E6%84%BF%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97boinc"><span class="nav-number">1.</span> <span class="nav-text">参与志愿科学计算：boinc</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E8%B4%A6%E5%8F%B7"><span class="nav-number">1.1.</span> <span class="nav-text">注册账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ubuntudebian"><span class="nav-number">1.2.1.</span> <span class="nav-text">Ubuntu&#x2F;Debian</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#termux"><span class="nav-number">1.2.2.</span> <span class="nav-text">Termux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#arch-linux"><span class="nav-number">1.2.3.</span> <span class="nav-text">Arch Linux</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E9%A1%B9%E7%9B%AE%E5%88%B0%E8%AE%A1%E7%AE%97%E6%9C%BA"><span class="nav-number">1.3.</span> <span class="nav-text">添加项目到计算机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#www.worldcommunitygrid.org"><span class="nav-number">1.3.1.</span> <span class="nav-text">www.worldcommunitygrid.org</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scienceunited.org"><span class="nav-number">1.3.2.</span> <span class="nav-text">scienceunited.org</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%9F%A5%E7%9C%8B%E7%8A%B6%E6%80%81%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.</span> <span class="nav-text">常用查看状态命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E6%95%B4%E8%AE%BE%E5%AE%9A"><span class="nav-number">1.5.</span> <span class="nav-text">调整设定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%E5%9C%A8%E9%A1%B9%E7%9B%AE%E7%BD%91%E7%AB%99%E4%B8%8A%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.5.1.</span> <span class="nav-text">方法一：在项目网站上设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#www.worldcommunitygrid.org-1"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">www.worldcommunitygrid.org</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scienceunited.org-1"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">scienceunited.org</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%E4%BF%AE%E6%94%B9-boinc-%E6%9C%AC%E5%9C%B0%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.5.2.</span> <span class="nav-text">方法二：修改 boinc 本地设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E8%B0%83%E6%A0%A1"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">性能调校</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Andy Lee</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://hamiltonhuaji.github.io/" title="https:&#x2F;&#x2F;hamiltonhuaji.github.io&#x2F;" rel="noopener" target="_blank">HamiltonHuaji</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Andy Lee</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

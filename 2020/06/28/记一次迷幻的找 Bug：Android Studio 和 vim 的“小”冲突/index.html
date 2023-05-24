@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="记一次迷幻的找 Bug：Android Studio 和 vim 的“小”冲突 这是一个迷幻的 Bug 的发现过程记录，如果想看解决方案可以直接拉到问题发现 的末尾～">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记一次迷幻的找 Bug：Android Studio 和 vim 的“小”冲突">
+<meta property="og:url" content="http://yoursite.com/2020/06/28/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BF%B7%E5%B9%BB%E7%9A%84%E6%89%BE%20Bug%EF%BC%9AAndroid%20Studio%20%E5%92%8C%20vim%20%E7%9A%84%E2%80%9C%E5%B0%8F%E2%80%9D%E5%86%B2%E7%AA%81/index.html">
+<meta property="og:site_name" content="To Infinity and Beyond">
+<meta property="og:description" content="记一次迷幻的找 Bug：Android Studio 和 vim 的“小”冲突 这是一个迷幻的 Bug 的发现过程记录，如果想看解决方案可以直接拉到问题发现 的末尾～">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-06-27T22:55:35.000Z">
+<meta property="article:modified_time" content="2023-05-24T02:02:15.879Z">
+<meta property="article:author" content="Andy Lee">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="vim">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/06/28/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BF%B7%E5%B9%BB%E7%9A%84%E6%89%BE%20Bug%EF%BC%9AAndroid%20Studio%20%E5%92%8C%20vim%20%E7%9A%84%E2%80%9C%E5%B0%8F%E2%80%9D%E5%86%B2%E7%AA%81/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>记一次迷幻的找 Bug：Android Studio 和 vim 的“小”冲突 | To Infinity and Beyond</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">To Infinity and Beyond</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/28/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BF%B7%E5%B9%BB%E7%9A%84%E6%89%BE%20Bug%EF%BC%9AAndroid%20Studio%20%E5%92%8C%20vim%20%E7%9A%84%E2%80%9C%E5%B0%8F%E2%80%9D%E5%86%B2%E7%AA%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Andy Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="To Infinity and Beyond">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          记一次迷幻的找 Bug：Android Studio 和 vim 的“小”冲突
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-06-28 06:55:35" itemprop="dateCreated datePublished" datetime="2020-06-28T06:55:35+08:00">2020-06-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-05-24 10:02:15" itemprop="dateModified" datetime="2023-05-24T10:02:15+08:00">2023-05-24</time>
+              </span>
+
+          
+            <span id="/2020/06/28/%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BF%B7%E5%B9%BB%E7%9A%84%E6%89%BE%20Bug%EF%BC%9AAndroid%20Studio%20%E5%92%8C%20vim%20%E7%9A%84%E2%80%9C%E5%B0%8F%E2%80%9D%E5%86%B2%E7%AA%81/" class="post-meta-item leancloud_visitors" data-flag-title="记一次迷幻的找 Bug：Android Studio 和 vim 的“小”冲突" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="记一次迷幻的找-bugandroid-studio-和-vim-的小冲突">记一次迷幻的找 Bug：Android Studio 和 vim 的“小”冲突</h1>
+<p>这是一个迷幻的 Bug 的发现过程记录，如果想看解决方案可以直接拉到问题发现 的末尾～</p>
+<span id="more"></span>
+<h2 id="问题发现">问题发现</h2>
+<p>问题最开始是这样出现的：因为没有及时和 GitHub repo 保持同步，我本地代码和远端代码的 merge 遇到了 conflicts，于是只好一个一个文件去改，小心翼翼地修改了近十个文件后，在 Android Studio 中 build 报错：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error:Content is not allowed in prolog.</span><br></pre></td></tr></table></figure>
+<p>去 Google 上查，<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/3030903/content-is-not-allowed-in-prolog-when-parsing-perfectly-valid-xml-on-gae">第一个搜索结果</a> 说是 XML header 的问题，但辣么多 XML 叫我怎么找啊，于是添加 <code>--info</code> 或是 <code>--debug</code> 再 build，虽说没太多有用的信息，但有一句</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Task &#x27;:app:extractDeepLinksDebug&#x27; is not up-to-date because:</span><br><span class="line">  Input property &#x27;navFilesFolders&#x27; file /Users/xxxxx/AndroidStudioProjects/Xebird/app/src/main/res/navigation/nav_graph.xml has changed.</span><br></pre></td></tr></table></figure>
+<p>好，起码知道 <code>nav_graph.xml</code> 是有问题的——毕竟确实对它做了merge，我天真地想到。</p>
+<p>于是先暴力验证一下：上 GitHub 把最新版的 <code>nav_graph.xml</code> 弄下来覆盖本地——</p>
+<p>依旧报错。</p>
+<p>我直接懵了，反复检查，还去查看了其他的几个修改过的 XML 文件，均没有 header上的问题，于是又去 Google 和 Stack Overflow 上反复搜索…… 大家给的解决方案无外乎 clean project 或者删除某些自动生成的文件夹之类的，均失败。在几番尝试未果的情况下，最终我只得另开一个文件夹，pull下来最新的代码，再把自己的修改相应地补上去……</p>
+<p>本以为这事就这么结束了。</p>
+<p>结果在又一次 merge conflict 时，这个问题又一次出现了！这次的 conflicts 只出现三个文件中，且 <code>nav_graph.xml</code> 是其中唯一一个 XML 文件…… 我不禁陷入沉思。</p>
+<p>总这样也不是个法子，于是就再仔细看了下错误代码的搜索结果和错误报告，注意到<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/25145539/android-studio-compile-error-content-is-not-allowed-in-prolog">有一篇文章</a> 讲到了不能在res文件夹下乱放东西，而错误报告里面也只讲到了没能成功完成一项任务，其原因为 <code>nav_graph.xml</code> 没能成功更新。</p>
+<p>所以，难道我一不小心添加了什么文件？</p>
+<p>可我记得完全没有做过文件移动到操作啊，重命名都没有……</p>
+<p>我在 Android Studio中找了一遍，没有。</p>
+<p>用 <code>git status</code> 看了看，没有。</p>
+<p>这岂不是见鬼了……</p>
+<p>所以那个鬼文件在哪？难不成真在res文件夹下？于是我直奔res文件夹下，没看到——突然想起，在文件浏览器中有一种文件是看不到的——开头为 <code>.</code> 的文件！</p>
+<p>于是果断打开 iTerm，<code>ll</code>，没有……</p>
+<p>不对，记得错误还是和 <code>nav_graph.xml</code> 有关的，直接跑去 <code>res/navigation</code> 文件夹，<code>ll</code>，出来了！</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">total 16</span><br><span class="line">drwxr-xr-x   4 xxxxx  staff   128B xxxxxxxx .</span><br><span class="line">drwxr-xr-x  21 xxxxx  staff   672B xxxxxxxx ..</span><br><span class="line">-rw-r--r--   1 xxxxx  staff     0B xxxxxxxx .nav_graph.xml.un~</span><br><span class="line">-rw-r--r--   1 xxxxx  staff   5.8K xxxxxxxx nav_graph.xml</span><br></pre></td></tr></table></figure>
+<p>原来是 vim 自动生成的 <code>.un~</code>文件！</p>
+<p>我预感这基本上就是病因了，于是果断去项目根目录下运行了如下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 这个 <span class="built_in">alias</span> 其实是我写在 .zshrc 里的，以前犯洁癖的时候写着用来清理 removeable devices 上的 vim 隐藏文件</span></span><br><span class="line">alias clean_vim=&#x27;find . -name &#x27;\&#x27;&#x27;*.un~&#x27;\&#x27;&#x27; -type f -delete&#x27;</span><br><span class="line">clean_vim</span><br></pre></td></tr></table></figure>
+<p>然后再 build，大功告成！</p>
+<h2 id="总结">总结</h2>
+<p>熟悉 vim 的朋友应该知道， <code>.un~</code> 文件是 vim 为了记录文件历史而设计的，默认是放在与被编辑的文件相同的文件夹下，如果被编辑文件名为 <code>file</code> ，则生成的文件名为 <code>.file.un~</code>。这个设计其实挺不错的，在确保文件移动（如果是针对文件夹级别的操作）的时候不影响恢复操作的同时，对用户隐藏了具体实现细节。</p>
+<p>但这次问题就出在这个文件：出于尚不清楚的原因，Android Studio 没有显示这个文件，同时又在build的时候没有排除掉它。至于为何 <code>git status</code> 没有显示，是因为我在项目之初就把 <code>*.un~</code> 加入到了 <code>.gitignore</code> 中。</p>
+<p>之后复现也基本成功了，不过也很有意思：</p>
+<p>在 上次build 通过，未修改 <code>nav_graph.xml</code> 的并添加 <code>.nav_graph.xml.un~</code> 情况下，直接build，问题不出现——应该是检查发现文件未修改所以跳过了。</p>
+<p>在修改 <code>nav_graph.xml</code> 的并添加 <code>.nav_graph.xml.un~</code> 情况下（顺序无所谓），build 不能通过，且在我使用 <code>touch .nav_graph.xml.un~</code> 创建时，报错为 <code>Premature end of file.</code> 看起来有些无厘头，不过再 <code>echo "a" &gt;&gt; ..nav_graph.xml.un~</code>，马上就回到 <code>Content is not allowed in prolog.</code> 这个报错啦。</p>
+<p>最后，为了彻底解决这个问题，我参考了一下<a target="_blank" rel="noopener" href="https://medium.com/@Aenon/vim-swap-backup-undo-git-2bf353caa02f">这篇文章</a>，把那些 vim 生成的隐藏文件单独拿出来放着：</p>
+<p>在 .vimrc 中添加了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set undodir=~/.vim/.undo//</span><br><span class="line">set backupdir=~/.vim/.backup//</span><br><span class="line">set directory=~/.vim/.swp//</span><br></pre></td></tr></table></figure>
+<p>并建立相应文件夹，再添加 crontab 定期删除：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@daily find ~/.vim/.undo -type f -name &#x27;*;*&#x27; -not \( -atime 0 -or -atime 1 -or -atime 2 -or -atime 3 -or -atime 4 -or -atime 5 -or -atime 6 \) -delete</span><br><span class="line">@daily find ~/.vim/.backup -type f -name &#x27;*;*&#x27; -not \( -atime 0 -or -atime 1 -or -atime 2 -or -atime 3 -or -atime 4 -or -atime 5 -or -atime 6 \) -delete</span><br><span class="line">@daily find ~/.vim/.swp -type f -name &#x27;*;*&#x27; -not \( -atime 0 -or -atime 1 -or -atime 2 -or -atime 3 -or -atime 4 -or -atime 5 -or -atime 6 \) -delete</span><br></pre></td></tr></table></figure>
+<p>OK，问题解决！</p>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    <div>
+        
+        <div style="text-align:center;color: #ccc;font-size:14px;">-----------------------<span style="margin: 0 10px;">如有留言，请联系 <a href="mailto:ljk5403@outlook.com">ljk5403@outlook.com</a></span>-----------------------</div>
+        
+    </div>
+</div>
+
+      
+    </div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Android/" rel="tag"># Android</a>
+              <a href="/tags/vim/" rel="tag"># vim</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/21/%E6%98%9F%E7%A7%AF%E7%9B%98%EF%BD%9C%E6%98%9F%E9%99%85%E7%89%9B%E4%BB%94%C2%B7%E5%A4%A9%E5%9B%BD%E4%B9%8B%E6%89%89/" rel="prev" title="星积盘｜星际牛仔·天国之扉">
+      <i class="fa fa-chevron-left"></i> 星积盘｜星际牛仔·天国之扉
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/03/%E3%80%8A%E9%BE%99%E4%B8%8E%E8%99%8E%E3%80%8B%E6%9D%82%E8%B0%88%EF%BC%9A%E7%88%B1%E8%8B%A5%E5%B9%BD%E7%81%B5/" rel="next" title="《龙与虎》杂谈：爱若幽灵">
+      《龙与虎》杂谈：爱若幽灵 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%B0%E4%B8%80%E6%AC%A1%E8%BF%B7%E5%B9%BB%E7%9A%84%E6%89%BE-bugandroid-studio-%E5%92%8C-vim-%E7%9A%84%E5%B0%8F%E5%86%B2%E7%AA%81"><span class="nav-number">1.</span> <span class="nav-text">记一次迷幻的找 Bug：Android Studio 和 vim 的“小”冲突</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%8F%91%E7%8E%B0"><span class="nav-number">1.1.</span> <span class="nav-text">问题发现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.2.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Andy Lee</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://hamiltonhuaji.github.io/" title="https:&#x2F;&#x2F;hamiltonhuaji.github.io&#x2F;" rel="noopener" target="_blank">HamiltonHuaji</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Andy Lee</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

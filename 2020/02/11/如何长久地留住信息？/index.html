@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="如何长久地留住信息？ 众所周知，中国互联网有着无数个比武汉红会大得多的黑洞，其大小与分布密度与公司道德素质浓度成反比，但普遍分布于微信、微博、知乎等各种社交媒体中。 这使得如何留下那些自己觉得有价值的信息成了非常重要的事。 为此我们要做的事有三件：留存，索引，以及分享。 评分标准：5 - 良好；3 - 一般；1 - 勉强能用；0 - 不可用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何长久地留住信息？">
+<meta property="og:url" content="http://yoursite.com/2020/02/11/%E5%A6%82%E4%BD%95%E9%95%BF%E4%B9%85%E5%9C%B0%E7%95%99%E4%BD%8F%E4%BF%A1%E6%81%AF%EF%BC%9F/index.html">
+<meta property="og:site_name" content="To Infinity and Beyond">
+<meta property="og:description" content="如何长久地留住信息？ 众所周知，中国互联网有着无数个比武汉红会大得多的黑洞，其大小与分布密度与公司道德素质浓度成反比，但普遍分布于微信、微博、知乎等各种社交媒体中。 这使得如何留下那些自己觉得有价值的信息成了非常重要的事。 为此我们要做的事有三件：留存，索引，以及分享。 评分标准：5 - 良好；3 - 一般；1 - 勉强能用；0 - 不可用。">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-02-11T09:43:37.000Z">
+<meta property="article:modified_time" content="2023-05-24T02:02:15.875Z">
+<meta property="article:author" content="Andy Lee">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/02/11/%E5%A6%82%E4%BD%95%E9%95%BF%E4%B9%85%E5%9C%B0%E7%95%99%E4%BD%8F%E4%BF%A1%E6%81%AF%EF%BC%9F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>如何长久地留住信息？ | To Infinity and Beyond</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">To Infinity and Beyond</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/11/%E5%A6%82%E4%BD%95%E9%95%BF%E4%B9%85%E5%9C%B0%E7%95%99%E4%BD%8F%E4%BF%A1%E6%81%AF%EF%BC%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Andy Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="To Infinity and Beyond">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何长久地留住信息？
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-11 17:43:37" itemprop="dateCreated datePublished" datetime="2020-02-11T17:43:37+08:00">2020-02-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-05-24 10:02:15" itemprop="dateModified" datetime="2023-05-24T10:02:15+08:00">2023-05-24</time>
+              </span>
+
+          
+            <span id="/2020/02/11/%E5%A6%82%E4%BD%95%E9%95%BF%E4%B9%85%E5%9C%B0%E7%95%99%E4%BD%8F%E4%BF%A1%E6%81%AF%EF%BC%9F/" class="post-meta-item leancloud_visitors" data-flag-title="如何长久地留住信息？" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="如何长久地留住信息">如何长久地留住信息？</h1>
+<p>众所周知，中国互联网有着无数个比武汉红会大得多的黑洞，其大小与分布密度与公司道德素质浓度成反比，但普遍分布于微信、微博、知乎等各种社交媒体中。</p>
+<p>这使得如何留下那些自己觉得有价值的信息成了非常重要的事。</p>
+<p>为此我们要做的事有三件：<strong>留存，索引，以及分享</strong>。</p>
+<p><strong>评分标准：5 - 良好；3 - 一般；1 - 勉强能用；0 - 不可用。</strong></p>
+<p> <span id="more"></span></p>
+<h2 id="印象笔记553">印象笔记：553</h2>
+<p>剪藏功能很强大，搜索功能很强大。剪藏作为浏览器插件可处理几乎所有网站，搜索可以将文档（pdf/docx, etc.）甚至图片中的文字搜出来（OCR技术的应用，细思恐极）（这个功能应该需要加钱）。</p>
+<p>但分享主要是印象笔记账户之间可以分享，往微信有分享渠道，但效果不佳。</p>
+<p>暂未发现审查（也有可能一些文章被删掉了都没发现，东西太多了）。</p>
+<p>唯一的显著缺点大概是大量使用得充钱——不过也不贵，一年一百左右，碰到活动还能便宜好多。</p>
+<p>顺便一说，Onenote 也有类似的剪藏功能，而且空间无限不要钱，要说问题就是不方便搜索吧，以及剪藏功能略弱了一点，偶尔出错。</p>
+<p>印象笔记的剪藏功能也偶尔出错，主要发生于用微信/手机浏览器剪藏需动态加载的网站，电脑浏览器上的剪藏功能基本不出错。</p>
+<h2 id="存档网站315">存档网站：315</h2>
+<p>可根据链接将网页存档，但对于部分需要“点击展开全文”的网站等动态加载网站不友好，因此存档能力只能算一般。</p>
+<p>几乎所有存档网站都只支持根据网址搜索，因此非常不利于后日的检索。</p>
+<p>但也因其公开性，在分享上是非常方便的——除了长城防火墙的眷顾导致没梯子打不开之外没有任何问题。</p>
+<p>当然其隐私性也就无从谈起了。</p>
+<h3 id="archiveror315">Archiveror：315</h3>
+<p>直接推荐一款浏览器插件：Archiveror 。用它可以一键将当前网站上传到当前较好的几个存档网站上。Archiveror 在 Firefox 和 Chrome 上可用。</p>
+<p>访问链接可达：<a target="_blank" rel="noopener" href="https://www.rahielkasim.com/archiveror/" class="uri">https://www.rahielkasim.com/archiveror/</a>，在链接里有几个存档网站的介绍，推荐<a target="_blank" rel="noopener" href="https://archive.is/" class="uri">https://archive.is/</a> 和 <a target="_blank" rel="noopener" href="https://archive.org/" class="uri">https://archive.org/</a>。</p>
+<h3 id="自由微信自由微博等035">自由微信/自由微博等：035</h3>
+<p>前文就说了信息黑洞在国内的密度尤为大，因此自然有人会针对性地做一些工作——<a target="_blank" rel="noopener" href="https://zh.greatfire.org/" class="uri">https://zh.greatfire.org/</a>就做了自由微信与自由微博。由于无法主动去保存文章，所以与本文主旨有些出入，但不少被和谐掉的文章都是可以在里面找到的，且拥有较好的搜索功能，因此也罗列于此。</p>
+<p>自由微信：<a target="_blank" rel="noopener" href="https://freewechat.com/" class="uri">https://freewechat.com/</a></p>
+<p>自由微博：<a target="_blank" rel="noopener" href="https://freeweibo.com/" class="uri">https://freeweibo.com/</a></p>
+<h2 id="把网页下载下来535">把网页下载下来：535</h2>
+<p>这其实是最简单的想法——一般浏览器都能把整个网址下载下来，如果觉得一个网址对应太多复杂的文件不方便整理，可以保存为pdf。但私以为最好的方法还是用一个名为 SingleFile 的插件，它可以将整个网站保存为浏览器可加载的html文件，可以说是最佳选择了。而且 SingleFile 广泛支持各种浏览器，详情见官网<a target="_blank" rel="noopener" href="https://github.com/gildas-lormeau/SingleFile" class="uri">https://github.com/gildas-lormeau/SingleFile</a>。</p>
+<p>但在检索方面这确实不算好：在标题明确/时间明确的情况下可以直接用操作系统的索引功能搜索，具体细节也可以打开html文件后在浏览器里搜索，但全局搜索功能不强。</p>
+<p>分享就很方便了：直接把整个html发过去就好，有浏览器就能打开。这年头，还几个设备没浏览器呢？</p>
+<blockquote>
+<p>可以扩展：做一个索引/搜索引擎？</p>
+</blockquote>
+<h2 id="去中心化的文章平台535">去中心化的文章平台：535</h2>
+<blockquote>
+<p>补充于2020/02/21</p>
+</blockquote>
+<p>直接看一篇写得比较好的文章吧～</p>
+<p><a target="_blank" rel="noopener" href="https://blog.outv.im/2020/ipfs-faced-platforms/" class="uri">https://blog.outv.im/2020/ipfs-faced-platforms/</a></p>
+<p>除了没法确保隐私，可以说是最好的方法了。当然，前提是能访问到，不少已经被GFW封了。</p>
+<hr />
+<p>笔者能想到的方法只有这么多啦，如果大家有更好的方法，欢迎在文末留言告诉我 :)</p>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    <div>
+        
+        <div style="text-align:center;color: #ccc;font-size:14px;">-----------------------<span style="margin: 0 10px;">如有留言，请联系 <a href="mailto:ljk5403@outlook.com">ljk5403@outlook.com</a></span>-----------------------</div>
+        
+    </div>
+</div>
+
+      
+    </div>
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/06/%E6%98%9F%E7%A7%AF%E7%9B%98%C2%B73%EF%BD%9C%E7%A7%91%E5%B9%BB%E8%BF%B7%E7%9A%84%E6%B5%AA%E6%BC%AB/" rel="prev" title="星积盘·3｜科幻迷的浪漫">
+      <i class="fa fa-chevron-left"></i> 星积盘·3｜科幻迷的浪漫
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/26/%E6%98%9F%E7%A7%AF%E7%9B%98%C2%B74%EF%BD%9C%E4%BE%8B%E5%AD%90%E4%BB%80%E4%B9%88%E7%9A%84%E9%83%BD%E5%8E%BB%E6%AD%BB%E5%90%A7/" rel="next" title="星积盘·4｜例子什么的都去死吧">
+      星积盘·4｜例子什么的都去死吧 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%95%BF%E4%B9%85%E5%9C%B0%E7%95%99%E4%BD%8F%E4%BF%A1%E6%81%AF"><span class="nav-number">1.</span> <span class="nav-text">如何长久地留住信息？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%B0%E8%B1%A1%E7%AC%94%E8%AE%B0553"><span class="nav-number">1.1.</span> <span class="nav-text">印象笔记：553</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E6%A1%A3%E7%BD%91%E7%AB%99315"><span class="nav-number">1.2.</span> <span class="nav-text">存档网站：315</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#archiveror315"><span class="nav-number">1.2.1.</span> <span class="nav-text">Archiveror：315</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E7%94%B1%E5%BE%AE%E4%BF%A1%E8%87%AA%E7%94%B1%E5%BE%AE%E5%8D%9A%E7%AD%89035"><span class="nav-number">1.2.2.</span> <span class="nav-text">自由微信&#x2F;自由微博等：035</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%8A%E7%BD%91%E9%A1%B5%E4%B8%8B%E8%BD%BD%E4%B8%8B%E6%9D%A5535"><span class="nav-number">1.3.</span> <span class="nav-text">把网页下载下来：535</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9A%84%E6%96%87%E7%AB%A0%E5%B9%B3%E5%8F%B0535"><span class="nav-number">1.4.</span> <span class="nav-text">去中心化的文章平台：535</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Andy Lee</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://hamiltonhuaji.github.io/" title="https:&#x2F;&#x2F;hamiltonhuaji.github.io&#x2F;" rel="noopener" target="_blank">HamiltonHuaji</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Andy Lee</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

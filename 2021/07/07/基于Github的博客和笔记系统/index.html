@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="基于Github的博客和笔记系统">
+<meta property="og:url" content="http://yoursite.com/2021/07/07/%E5%9F%BA%E4%BA%8EGithub%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%92%8C%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="To Infinity and Beyond">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-07-07T12:21:11.000Z">
+<meta property="article:modified_time" content="2023-05-24T02:02:15.875Z">
+<meta property="article:author" content="Andy Lee">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2021/07/07/%E5%9F%BA%E4%BA%8EGithub%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%92%8C%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>基于Github的博客和笔记系统 | To Infinity and Beyond</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">To Infinity and Beyond</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/07/07/%E5%9F%BA%E4%BA%8EGithub%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%92%8C%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Andy Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="To Infinity and Beyond">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          基于Github的博客和笔记系统
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-07-07 20:21:11" itemprop="dateCreated datePublished" datetime="2021-07-07T20:21:11+08:00">2021-07-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-05-24 10:02:15" itemprop="dateModified" datetime="2023-05-24T10:02:15+08:00">2023-05-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/07/07/%E5%9F%BA%E4%BA%8EGithub%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%92%8C%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F/" class="post-meta-item leancloud_visitors" data-flag-title="基于Github的博客和笔记系统" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p> <span id="more"></span></p>
+<h1 id="基于github的博客和笔记系统">基于Github的博客和笔记系统</h1>
+<p>[TOC]</p>
+<p>打算把正儿八经的笔记集体迁移到文件系统中，结合GitHub备份和在线浏览。同时也方便把好的笔记直接转换为博客。</p>
+<p>为此，建立了一个私有仓库Notes，博客依旧放在GitHub Pages。</p>
+<h2 id="总体思路">总体思路</h2>
+<p>使用 GitHub Workflow 自动从Notes构建Blog：</p>
+<ol type="1">
+<li>监听资源仓库的commit，发现特定文件夹(BlogSource)更新后推送到blog构建区域（blog仓库的分支：blog_factory）</li>
+<li>构建blog，推送到GitHub Pages（即log仓库的分支：master）</li>
+</ol>
+<h2 id="实现">实现</h2>
+<h3 id="笔记方法简述">笔记方法简述</h3>
+<p>使用markdown作为笔记格式，图片、附件等资源放在同名的<code>.res</code>后缀文件夹下（部分老版本仍使用<code>.src</code>后缀）。配合 Typora 使用可以自动将拖动到文中的图片拷贝到同名<code>.res</code>后缀文件夹。</p>
+<blockquote>
+<p>尽量不要在文件名中出现空格和一些英文标点</p>
+</blockquote>
+<h3 id="本地整理-blog">本地整理 Blog</h3>
+<h4 id="blog存放的原则">blog存放的原则</h4>
+<p>blog源文件和各种资源文件放置在<code>Notes/BlogSource</code>，以下均以上述文件夹为当前目录。</p>
+<p>由笔记直接整理出的，应当软链接回笔记。变动较大的，也应该在笔记版本上注明存在blog版本。</p>
+<h4 id="添加blog头">添加blog头</h4>
+<p>使用 <code>./header_blog.sh $filename</code> 来快捷添加blog头，并启动vim来编辑。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">header_blog.sh</span><br><span class="line">filename=<span class="string">&quot;$*&quot;</span></span><br><span class="line"><span class="keyword">if</span> [ ! -n <span class="string">&quot;<span class="variable">$filename</span>&quot;</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;File not found!&quot;</span></span><br><span class="line">  <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;---</span></span><br><span class="line"><span class="string">title: <span class="variable">$&#123;filename%.*&#125;</span></span></span><br><span class="line"><span class="string">date: <span class="subst">$(date &#x27;+%Y-%m-%d %H:%M:%S&#x27;)</span></span></span><br><span class="line"><span class="string">categories:</span></span><br><span class="line"><span class="string">tags:</span></span><br><span class="line"><span class="string">---</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"> &lt;!-- more --&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"><span class="subst">$(cat <span class="string">&quot;<span class="variable">$filename</span>&quot;</span>)</span></span></span><br><span class="line"><span class="string">&quot;</span> &gt; <span class="string">&quot;<span class="variable">$filename</span>&quot;</span></span><br><span class="line">vim <span class="string">&quot;<span class="variable">$filename</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<h4 id="移动文件到相应文件夹">移动文件到相应文件夹</h4>
+<p>将md文件移动到<code>_posts</code>文件夹中，图片等资源文件移动到<code>image</code>文件夹中，并更新md文件中的图片等链接。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mover.sh</span></span><br><span class="line">file=<span class="string">&quot;$*&quot;</span></span><br><span class="line"><span class="keyword">if</span> [ -f <span class="string">&quot;<span class="variable">$file</span>&quot;</span> ] &amp;&amp; [ -n <span class="string">&quot;<span class="variable">$file</span>&quot;</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">  <span class="keyword">if</span> [ -d <span class="string">&quot;<span class="variable">$&#123;file%.*&#125;</span>.res&quot;</span> ]</span><br><span class="line">  <span class="keyword">then</span></span><br><span class="line">    sed -e <span class="string">&quot;s/\!\[\](/\!\[\](\/image\//g&quot;</span> <span class="string">&quot;<span class="variable">$file</span>&quot;</span> &gt;<span class="string">&quot;<span class="variable">$file</span>.temp&quot;</span></span><br><span class="line">    mv <span class="string">&quot;<span class="variable">$file</span>&quot;</span> <span class="string">&quot;<span class="variable">$&#123;file%.*&#125;</span>.source.md&quot;</span></span><br><span class="line">    mv <span class="string">&quot;<span class="variable">$file</span>.temp&quot;</span> <span class="string">&quot;<span class="variable">$file</span>&quot;</span></span><br><span class="line">    mv <span class="string">&quot;<span class="variable">$&#123;file%.*&#125;</span>.res&quot;</span> image/</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">  mv <span class="string">&quot;<span class="variable">$file</span>&quot;</span> _posts/</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;File not found!&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<p>关于图片，参考了<a target="_blank" rel="noopener" href="https://yanyinhong.github.io/2017/05/02/How-to-insert-image-in-hexo-post/" class="uri">https://yanyinhong.github.io/2017/05/02/How-to-insert-image-in-hexo-post/</a></p>
+<h3 id="blog-仓库推送到-blog_factory">Blog 仓库推送到 blog_factory</h3>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Notes/.github/workflows/sendBlog.yml</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">Send</span> <span class="string">Blog</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">paths:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">BlogSource/**</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">push-blog:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span> <span class="string">Notes</span> <span class="string">repo</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Update</span> <span class="string">Blog</span> <span class="string">Factory</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">UPDATE_SECRET:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.BLOG_UPDATE_KEY</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">GIT_USER:</span> <span class="comment">#你的GitHub用户名</span></span><br><span class="line">          <span class="attr">GIT_EMAIL:</span> <span class="comment">#你的GitHub邮箱</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          sudo timedatectl set-timezone &quot;Asia/Shanghai&quot;</span></span><br><span class="line"><span class="string">          mkdir -p ~/.ssh</span></span><br><span class="line"><span class="string">          echo &quot;$UPDATE_SECRET&quot; &gt; ~/.ssh/id_rsa</span></span><br><span class="line"><span class="string">          chmod 600 ~/.ssh/id_rsa</span></span><br><span class="line"><span class="string">          ssh-keyscan github.com &gt;&gt; ~/.ssh/known_hosts</span></span><br><span class="line"><span class="string">          git clone &quot;GitHub Pages 仓库地址&quot; --single-branch --branch blog_factory blog_factory --depth=1</span></span><br><span class="line"><span class="string">          rsync -av --delete BlogSource/_posts blog_factory/source</span></span><br><span class="line"><span class="string">          rsync -av --delete BlogSource/image blog_factory/source</span></span><br><span class="line"><span class="string">          cd blog_factory</span></span><br><span class="line"><span class="string">          git add --all</span></span><br><span class="line"><span class="string">          if [ -n &quot;`git status -s`&quot; ]</span></span><br><span class="line"><span class="string">          then</span></span><br><span class="line"><span class="string">            git status</span></span><br><span class="line"><span class="string">            git config --global user.name $GIT_USER</span></span><br><span class="line"><span class="string">            git config --global user.email $GIT_EMAIL</span></span><br><span class="line"><span class="string">            git commit -m &quot;Automatically pushed from Notes: $(date &#x27;+%Y-%m-%d %H:%M:%S&#x27;)&quot;</span></span><br><span class="line"><span class="string">            git push</span></span><br><span class="line"><span class="string">          else</span></span><br><span class="line"><span class="string">            echo &quot;Nothing to Commit&quot;</span></span><br><span class="line"><span class="string">          fi</span></span><br></pre></td></tr></table></figure>
+<h3 id="blog_factory-自动构建并推送到github-pages">blog_factory 自动构建并推送到GitHub Pages</h3>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># blog_local/.github/workflows/blogBuilder.yml</span></span><br><span class="line"><span class="comment"># 可能已经被修改！建议直接查看源文件</span></span><br><span class="line"><span class="comment"># https://github.com/ljk5403/ljk5403.github.io/blob/blog_factory/.github/workflows/blogBuilder.yml</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">Hexo</span> <span class="string">Deploy</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">blog_factory</span></span><br><span class="line">    <span class="attr">paths:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">source/**</span></span><br><span class="line"></span><br><span class="line"><span class="attr">env:</span></span><br><span class="line">  <span class="attr">GIT_USER:</span> <span class="comment">#你的GitHub用户名</span></span><br><span class="line">  <span class="attr">GIT_EMAIL:</span> <span class="comment">#你的GitHub邮箱</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build-blog:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span> <span class="string">source</span> <span class="string">repo</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">ref:</span> <span class="string">blog_factory</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Set</span> <span class="string">up</span> <span class="string">Node.js</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&#x27;14&#x27;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment"># 安装依赖</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Dependencies</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          wget https://github.com/jgm/pandoc/releases/download/2.10.1/pandoc-2.10.1-1-amd64.deb</span></span><br><span class="line"><span class="string">          sudo dpkg -i pandoc-2.10.1-1-amd64.deb</span></span><br><span class="line"><span class="string">          npm uninstall hexo-renderer-marked</span></span><br><span class="line"><span class="string">          npm install hexo-renderer-pandoc</span></span><br><span class="line"><span class="string">          npm install</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="comment"># 从之前设置的 secret 获取部署私钥</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">SSH</span> <span class="string">Keys</span> <span class="string">and</span> <span class="string">known_hosts</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">DEPLOY_SECRET:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.BLOG_DEPLOY_SECRET</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          sudo timedatectl set-timezone &quot;Asia/Shanghai&quot;</span></span><br><span class="line"><span class="string">          mkdir -p ~/.ssh</span></span><br><span class="line"><span class="string">          echo &quot;$DEPLOY_SECRET&quot; &gt; ~/.ssh/id_rsa</span></span><br><span class="line"><span class="string">          chmod 600 ~/.ssh/id_rsa</span></span><br><span class="line"><span class="string">          ssh-keyscan github.com &gt;&gt; ~/.ssh/known_hosts</span></span><br><span class="line"><span class="string">          git config --global user.name $GIT_USER</span></span><br><span class="line"><span class="string">          git config --global user.email $GIT_EMAIL</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="comment"># 生成并部署 `npx hexo clean &amp;&amp; npx hexo g -d` or `npm run deploy`</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">          <span class="string">npx</span> <span class="string">hexo</span> <span class="string">clean</span> <span class="string">&amp;&amp;</span> <span class="string">npx</span> <span class="string">hexo</span> <span class="string">g</span> <span class="string">-d</span></span><br></pre></td></tr></table></figure>
+<p>Tips:</p>
+<ol type="1">
+<li>不要在<code>source/_posts</code>中放其他类型的文件，可能导致无法<code>hexo g</code>。（笔者经历：两个sh文件导致无法读取整个文件夹）</li>
+</ol>
+<p>参考：</p>
+<ol type="1">
+<li><a target="_blank" rel="noopener" href="https://note.junyangz.com/2019/GitHub-Actions-depoly-Hexo/" class="uri">https://note.junyangz.com/2019/GitHub-Actions-depoly-Hexo/</a></li>
+<li><a target="_blank" rel="noopener" href="https://umm.js.org/p/3d7401da/" class="uri">https://umm.js.org/p/3d7401da/</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    <div>
+        
+        <div style="text-align:center;color: #ccc;font-size:14px;">-----------------------<span style="margin: 0 10px;">如有留言，请联系 <a href="mailto:ljk5403@outlook.com">ljk5403@outlook.com</a></span>-----------------------</div>
+        
+    </div>
+</div>
+
+      
+    </div>
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/18/%E9%81%BF%E5%9D%91%EF%BC%9AArch%E7%B3%BBLinux%E4%B8%8Anc%E7%9A%84%E5%AE%89%E8%A3%85/" rel="prev" title="避坑：Arch系Linux上nc的安装">
+      <i class="fa fa-chevron-left"></i> 避坑：Arch系Linux上nc的安装
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/07/18/%E7%BF%BB%E8%AF%91%EF%BC%9AObjects%20In%20The%20Rear%20View%20Mirror/" rel="next" title="翻译：Objects In The Rear View Mirror">
+      翻译：Objects In The Rear View Mirror <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8Egithub%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%92%8C%E7%AC%94%E8%AE%B0%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.</span> <span class="nav-text">基于Github的博客和笔记系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E4%BD%93%E6%80%9D%E8%B7%AF"><span class="nav-number">1.1.</span> <span class="nav-text">总体思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.2.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95%E7%AE%80%E8%BF%B0"><span class="nav-number">1.2.1.</span> <span class="nav-text">笔记方法简述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E6%95%B4%E7%90%86-blog"><span class="nav-number">1.2.2.</span> <span class="nav-text">本地整理 Blog</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#blog%E5%AD%98%E6%94%BE%E7%9A%84%E5%8E%9F%E5%88%99"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">blog存放的原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0blog%E5%A4%B4"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">添加blog头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6%E5%88%B0%E7%9B%B8%E5%BA%94%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">移动文件到相应文件夹</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#blog-%E4%BB%93%E5%BA%93%E6%8E%A8%E9%80%81%E5%88%B0-blog_factory"><span class="nav-number">1.2.3.</span> <span class="nav-text">Blog 仓库推送到 blog_factory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#blog_factory-%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%E5%B9%B6%E6%8E%A8%E9%80%81%E5%88%B0github-pages"><span class="nav-number">1.2.4.</span> <span class="nav-text">blog_factory 自动构建并推送到GitHub Pages</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Andy Lee</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://hamiltonhuaji.github.io/" title="https:&#x2F;&#x2F;hamiltonhuaji.github.io&#x2F;" rel="noopener" target="_blank">HamiltonHuaji</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Andy Lee</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

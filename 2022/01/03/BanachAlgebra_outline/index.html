@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="抽象函数与 Banach 代数--大纲">
+<meta property="og:type" content="article">
+<meta property="og:title" content="抽象函数与 Banach 代数--大纲">
+<meta property="og:url" content="http://yoursite.com/2022/01/03/BanachAlgebra_outline/index.html">
+<meta property="og:site_name" content="To Infinity and Beyond">
+<meta property="og:description" content="抽象函数与 Banach 代数--大纲">
+<meta property="og:locale">
+<meta property="og:image" content="https://raw.githubusercontent.com/ljk5403/ljk5403.github.io/blog_picture/img/202112261329176.jpg">
+<meta property="article:published_time" content="2022-01-03T02:31:26.000Z">
+<meta property="article:modified_time" content="2023-05-24T02:02:15.875Z">
+<meta property="article:author" content="Andy Lee">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/ljk5403/ljk5403.github.io/blog_picture/img/202112261329176.jpg">
+
+<link rel="canonical" href="http://yoursite.com/2022/01/03/BanachAlgebra_outline/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>抽象函数与 Banach 代数--大纲 | To Infinity and Beyond</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">To Infinity and Beyond</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/01/03/BanachAlgebra_outline/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Andy Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="To Infinity and Beyond">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          抽象函数与 Banach 代数--大纲
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-01-03 10:31:26" itemprop="dateCreated datePublished" datetime="2022-01-03T10:31:26+08:00">2022-01-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-05-24 10:02:15" itemprop="dateModified" datetime="2023-05-24T10:02:15+08:00">2023-05-24</time>
+              </span>
+
+          
+            <span id="/2022/01/03/BanachAlgebra_outline/" class="post-meta-item leancloud_visitors" data-flag-title="抽象函数与 Banach 代数--大纲" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="抽象函数与-banach-代数--大纲">抽象函数与 Banach 代数--大纲</h1>
+<p> <span id="more"></span></p>
+<p>私以为这课叫 Banach 代数与 C *代数也挺好（哈哈哈哈</p>
+<h2 id="part1-banach-代数">Part1 Banach 代数</h2>
+<ol type="1">
+<li><p>Banach 代数的定义：代数，满足范数不等式（若有单位元，则要求？<span class="math inline">\(\|\mathbb{1}\|=1\)</span>) <span style="float: right;color:#a0a0a0;font-size:80%;">------ 2021.09.09 L1</span></p>
+<ul>
+<li>例子：
+<ul>
+<li>复数域</li>
+<li>连续函数空间<span class="math inline">\(C(\Omega)\)</span>，其中<span class="math inline">\(\Omega\)</span> 为紧 Hausdorff 空间</li>
+<li><span class="math inline">\(B(X)\)</span> Banach 空间 X 上的有界线性算子全体
+<ul>
+<li><span class="math inline">\(B(\mathbb{C}^n) \cong M_{n\times n}(\mathbb{C})\)</span></li>
+</ul></li>
+<li><span class="math inline">\(l_1(\mathbb{Z})\)</span>，乘法定义为卷积</li>
+<li>商 Banach 代数
+<ul>
+<li><span class="math inline">\(l_{\infty}/c_0\)</span></li>
+<li>Calkin 代数：<span class="math inline">\(B(H)/K(H)\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>可逆元</p>
+<ul>
+<li><span class="math inline">\(\mathbb{1}-x\)</span> 可逆，若<span class="math inline">\(\|x\| \leqslant 1\)</span></li>
+<li>全体<span class="math inline">\(G(A)\)</span>为开集 <span style="float: right;color:#a0a0a0;font-size:80%;">------ 2021.09.16 L2</span></li>
+<li>逆运算连续，故为<span class="math inline">\(G(A)\)</span>上的同胚</li>
+</ul></li>
+<li><p>谱<span class="math inline">\(\sigma(x)\)</span>、预解集<span class="math inline">\(\rho(x)\)</span>、谱半径<span class="math inline">\(r(x)\)</span></p>
+<ul>
+<li>例子：
+<ul>
+<li>矩阵：特征值</li>
+<li><span class="math inline">\(C(\Omega)\)</span>：函数值（图像）</li>
+</ul></li>
+<li>无限维空间中，谱不一定有对应的“特征向量”！</li>
+<li>对 Banach 代数，谱集为非空紧集
+<ul>
+<li>非空的证明很有趣，构造了一个全纯函数，用 Liouville 定理来证明它为常数（0）导出矛盾</li>
+<li>Cor: Banach 代数+可除代数（任意非零元均可逆）<span class="math inline">\(\Rightarrow\)</span> 等距同构于<span class="math inline">\(\mathbb{C}\)</span></li>
+</ul></li>
+<li>谱半径不大于模长：<span class="math inline">\(r(x)\leqslant \|x\|\)</span></li>
+<li><span class="math inline">\(\mathbb{1}-xy\)</span> 可逆 <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(\mathbb{1}-yx\)</span> 可逆
+<ul>
+<li>Cor: <span class="math inline">\(\sigma(xy)\cup \{0\} = \sigma(yx)\cup \{0\}\)</span>, <span class="math inline">\(r(xy)=r(yx)\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>弱拓扑与弱*拓扑</p>
+<ul>
+<li>定义略</li>
+<li>网</li>
+<li>Alaoglu 定理：对偶空间的单位闭球在弱 * 拓扑下是紧集，即<span class="math inline">\((B_1(X^*), W^*)\)</span>是紧集 <span style="float: right;color:#a0a0a0;font-size:80%;">------ 2021.09.23 L3</span>
+<ul>
+<li>记 <span class="math inline">\(\Omega = (B_1(X^*), W^*)\)</span>，则 Banach 空间 X 在典则映射<span class="math inline">\(\phi\)</span>下<strong>线性等距同构</strong>于<span class="math inline">\(C(\Omega)\)</span>的闭子空间。</li>
+<li>对于 Banach 代数，我们希望改善<span class="math inline">\(\Omega\)</span>使得<span class="math inline">\(\phi\)</span>也保持乘法，即<span class="math inline">\(\phi(xy) = \phi(x) \phi(y)\)</span>，不难知道这即需将<span class="math inline">\(\Omega\)</span>替换为保乘函数构成的空间</li>
+</ul></li>
+</ul></li>
+<li><p>保乘线性泛函、极大理想空间、Gelfand 变换</p>
+<ul>
+<li>保乘线性泛函<span class="math inline">\(\varphi\)</span>
+<ul>
+<li>是有界线性泛函，且<span class="math inline">\(\|\varphi\| = 1\)</span></li>
+<li>保乘线性泛函全体<span class="math inline">\(M_A\)</span>是<span class="math inline">\(B_1(A^*)\)</span>在<span class="math inline">\(W^*\)</span>拓扑下的闭子集，从而紧，<span class="math inline">\((M_A,W^*)\)</span>为紧 Hausdorff 空间</li>
+</ul></li>
+<li>Gelfand 变换：$: A C(M_A,W^*),; (x)() = (x) $
+<ul>
+<li>保乘法，<span class="math inline">\(\|\Gamma\| = 1\)</span>，为有界线性同态</li>
+</ul></li>
+<li>极大理想空间 <span style="float: right;color:#a0a0a0;font-size:80%;">------ 2021.09.30 L4</span>
+<ul>
+<li>非平凡保乘线性泛函与 A 中极大理想一一对应（A 交换），因此称<span class="math inline">\(M_A\)</span>为极大理想空间
+<ul>
+<li><span class="math inline">\(\varphi \leftrightarrow \ker (\varphi)=I\)</span>，反方向的证明比较有趣</li>
+<li>注意极大理想一定是真理想！因此平凡的保乘线性泛函 0 不能加进来</li>
+<li><blockquote>
+<p>这玩意跟 Affine variety 有点像诶（Hilbert's Nullstellensatz）</p>
+</blockquote></li>
+</ul></li>
+<li>A 为交换 Banach 代数，则 x 在 A 中可逆<span class="math inline">\(\iff\)</span><span class="math inline">\(\Gamma(x)\)</span>在<span class="math inline">\(C(M_A,W^*)\)</span>中可逆，从而<span class="math inline">\(\sigma_A(x) = \sigma_{C(M_A)}(\Gamma(x)) = Range(\Gamma(x))\)</span><span style="float: right;color:#a0a0a0;font-size:80%;"> 用到 Zorn 引理</span>
+<ul>
+<li>A 为 Banach 空间，<span class="math inline">\(x, y \in A,\; xy=yx\)</span>，则<span class="math inline">\(\sigma(x+y) \subset \sigma(x) + \sigma(y),\; \sigma(xy) \subset \sigma(x)\sigma(y)\)</span>
+<ul>
+<li>证明：构造包含 x,y 的交换 Banach 子代数</li>
+<li>注意：$B A _B(x) _A(x),; _B(x) _A(x) $</li>
+</ul></li>
+<li>谱映射定理：A 为 Banach 代数，$x A $, <span class="math inline">\(f(z)\)</span> 在<span class="math inline">\(|z| \leqslant \|x\|\)</span> 上解析，则 $(f(x)) = f((x)) $
+<ul>
+<li>证明方法同上</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>对交换 Banach 代数 A，Gelfand 变换<span class="math inline">\(\Gamma\)</span>是等距<span class="math inline">\(\iff\)</span> <span class="math inline">\(\|x\| = r(x),\; \forall x \in A\)</span> <span class="math inline">\(\iff\)</span> <span class="math inline">\(\|x^2\| = \|x\|^2,\; \forall x \in A\)</span> <span style="float: right;color:#a0a0a0;font-size:80%;">------ 2021.10.09 L5</span>
+<ul>
+<li>证明：谱半径公式：<span class="math inline">\(r(x) = \lim\limits_{n \to \infty} \|x^n\|^{\frac{1}{n}}\)</span></li>
+</ul></li>
+</ul></li>
+<li><p>Gelfand 变换的例子</p>
+<ol type="1">
+<li>盘代数<span class="math inline">\(A(\mathbb{D})\)</span>为在<span class="math inline">\(\bar{\mathbb{D}}\)</span>上解析，在<span class="math inline">\(\partial{\mathbb{D}}\)</span>上解析的函数全体
+<ul>
+<li>由于 <span class="math inline">\(\bar{\mathbb{D}}\)</span> 到<span class="math inline">\(M_{A(\mathbb{D})}\)</span> 有满同胚，故 Gelfand 变换<span class="math inline">\(\Gamma : A(\mathbb{D}) \to C(M_{A(\mathbb{D})}) \leftrightarrow C(\bar{\mathbb{D}})\)</span>为恒等映射。</li>
+</ul></li>
+<li>连续函数空间<span class="math inline">\(C(K)\)</span>
+<ul>
+<li>由于 <span class="math inline">\(K\)</span> 到<span class="math inline">\(M_{C(K)}\)</span> 有满同胚，故 Gelfand 变换<span class="math inline">\(\Gamma : C(K) \to C(M_{C(K)}) \leftrightarrow C(K)\)</span>为恒等映射。</li>
+</ul></li>
+<li><span class="math inline">\(l^1(\mathbb{Z})\)</span>，乘积为卷积<span style="float: right;color:#a0a0a0;font-size:80%;">------ 2021.10.14 L6</span>
+<ul>
+<li>由于 <span class="math inline">\(M_{l^1(\mathbb{Z})}\)</span> 到 <span class="math inline">\(\partial{\mathbb{D}}\)</span> 有满同胚，故 Gelfand 变换<span class="math inline">\(\Gamma : l^1(\mathbb{Z}) \to C(M_{C(l^1(\mathbb{Z}))}) \leftrightarrow C(\partial{\mathbb{D}})\)</span>为恒等映射。</li>
+</ul></li>
+</ol></li>
+<li><p>非单位 Banach 代数</p>
+<ol type="1">
+<li>例子：
+<ul>
+<li><span class="math inline">\(c_0,\;C_0(\mathbb{R})\)</span></li>
+<li>无限维 Banach 空间上的紧算子全体<span class="math inline">\(K(X)\)</span></li>
+<li><span class="math inline">\(L^1(\mathbb{R})\)</span>，乘积为卷积</li>
+</ul></li>
+<li>单位化：直和上一个<span class="math inline">\(\mathbb{C}\)</span>，并定义恰当的乘法和范数</li>
+<li>基本性质（大多靠单位化之后的空间推出）
+<ol type="1">
+<li>保乘线性泛函是有界线性泛函，且<span class="math inline">\(\|\varphi\| \leqslant 1\)</span>（无法保证取等！）</li>
+<li><span class="math inline">\((M_A,W^*)\)</span>为局部紧 Hausdorff 空间</li>
+</ol></li>
+<li>Gelfand 变换：<span class="math inline">\(\Gamma : A \to C_0 (M_A)\)</span>为保乘有界线性同态，且<span class="math inline">\(\|\Gamma\| \leqslant 1\)</span></li>
+<li>极大理想空间：对局部紧 Hausdorff 空间<span class="math inline">\(\Omega\)</span>，有极大理想空间<span class="math inline">\(M_{C_0(\Omega)} \cong \Omega\)</span>，从而 Gelfand 变换<span class="math inline">\(\Gamma\)</span>为恒等映射：<span class="math inline">\(C_0(\Omega) \to C(M_{C_0(\Omega)})\)</span>
+<ol type="1">
+<li>例子：<span class="math inline">\(L^1(\mathbb{R})\)</span>，乘积为卷积；此时 Gelfand 变换配合上述同胚即 Fourier 变换（这里不太好表述，见下图）<span style="float: right;color:#a0a0a0;font-size:80%;">------ 2021.10.21 L7</span></li>
+</ol></li>
+</ol></li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/ljk5403/ljk5403.github.io/blog_picture/img/202112261329176.jpg" alt="Example_1" /></p>
+<p><br></p>
+<p><br></p>
+<h2 id="part-2-c代数">Part 2 <span class="math inline">\(C^*\)</span>代数</h2>
+<ol type="1">
+<li><p><span class="math inline">\(C^*\)</span>代数定义</p>
+<ol type="1">
+<li>例子
+<ol type="1">
+<li><span class="math inline">\(\mathbb{C}\)</span></li>
+<li><span class="math inline">\(C(K)\)</span>，其中 K 为紧 Hausdorff 空间</li>
+<li>复<span class="math inline">\(M_{n \times n}\)</span></li>
+<li><span class="math inline">\(B(H)\)</span>，H 为 Hilbert Space</li>
+<li><span class="math inline">\(C^*\)</span>代数的子代数也是<span class="math inline">\(C^*\)</span>代数</li>
+</ol></li>
+</ol></li>
+<li><p>自伴、酉元、正规、正、投影元</p></li>
+</ol>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">  正元--&gt;自伴;</span><br><span class="line">  自伴--&gt;正规;</span><br><span class="line">  投影--&gt;自伴;</span><br><span class="line">  酉元--&gt;正规;</span><br></pre></td></tr></table></figure></p>
+<ol type="1">
+<li><p>正规，则<span class="math inline">\(r(x) = \|x\|\)</span></p>
+<ol type="1">
+<li>从而对任意 x，<span class="math inline">\(\|x\|=\sqrt{\|x^*x\|}=\sqrt{r(x^*x)}\)</span></li>
+</ol></li>
+<li><p>x 自伴<span class="math inline">\(\implies \sigma(x) \subset \mathbb{R}\)</span></p></li>
+<li><p>x 酉元<span class="math inline">\(\implies \sigma(x) \subset \partial D\)</span>，这里 D 为单位开圆盘</p></li>
+<li><p><span class="math inline">\(C^*\)</span>同态 <span style="float: right;color:#a0a0a0;font-size:80%;">------ 2021.10.28 L8</span></p>
+<ol type="1">
+<li><p><span class="math inline">\(C^*\)</span>同态范数为 1</p></li>
+<li><p><span class="math inline">\(C^*\)</span>同态+单射=<span class="math inline">\(C^*\)</span>同构</p></li>
+<li><p><span class="math inline">\(C^*\)</span>同构为等距（因可逆性完全一致，谱集对应，范数等价）</p></li>
+<li><p>交换<span class="math inline">\(C^*\)</span>代数的表示：交换<span class="math inline">\(C^*\)</span>代数 A 同构与<span class="math inline">\(C(K)\)</span>，K 为某紧 Hausdorff 空间（此即 Gelfand 变换，<span class="math inline">\(K=M_A\)</span>） 有以下推论：（交换情况）</p>
+<ol type="1">
+<li>x 自伴 <span class="math inline">\(\iff \sigma(x) \subset \mathbb{R}\)</span></li>
+<li>x 酉元 <span class="math inline">\(\iff \sigma(x) \subset \partial D\)</span></li>
+<li>x 为正元 <span class="math inline">\(\iff \sigma(x) \subset \mathbb{R}^+ \cup {0}\)</span></li>
+<li>x 为投影元 <span class="math inline">\(\iff \sigma(x) \subset \{0,1\}\)</span></li>
+</ol></li>
+</ol>
+<p>例子：</p>
+<ol type="1">
+<li><p>证明$M_{L^{} ()} $ 为极端不连通的紧 Hausdorff 空间 <span style="float: right;color:#a0a0a0;font-size:80%;">------ 2021.11.04 L9</span></p></li>
+<li><p>若<span class="math inline">\(C^*\)</span>子代数 B 继承<span class="math inline">\(C^*\)</span>代数 A 的单位元，B 中元的可逆性与 A 中元的可逆性等价，从而<span class="math inline">\(\sigma_B (x) = \sigma_A (x)\)</span></p></li>
+</ol></li>
+<li><p>谱定理：对正规元 x，<span class="math inline">\(A [x]\)</span>的极大理想空间同胚于<span class="math inline">\(\sigma(x) \subset \mathbb{C}\)</span></p>
+<ol type="1">
+<li>此时 Gelfand 变换满足 $(p(x,x^*)) = p(z,{z}) $</li>
+</ol></li>
+<li><p>连续泛函演算定理： $f C((x)),; f(x) = ^{-1} (f) A [x] $ 称为连续函数演算</p>
+<ol type="a">
+<li><p>上述定义的 $f f(x),; C((x))  A [x] $ 为满 <span class="math inline">\(C^*\)</span> 同构</p></li>
+<li><p>对二元多项式 $f(z) = p(z,{z}) $ ，有 $f(x) = p(x,x^*) $ ，特别的， $ f(z) = z f(x) = x $</p></li>
+<li><p>$(f(x)) = f((x)) $ （谱映射定理的推广！）</p></li>
+<li><p>若 $A B $ 为 <span class="math inline">\(C^*\)</span> 同态，则 $ f C((x)) C(((x))),; (f(x)) = f((x)) $</p></li>
+<li><p>$f C((x)), g C((x)), $ 有 $ (g f ) (x) = g(f(x)) $</p></li>
+</ol>
+<p>其中 d) 和 e) 证明：利用交换图<!--估计是考点--> 应用： <span style="float: right;color:#a0a0a0;font-size:80%;">------ 2021.11.11 L10</span></p>
+<ol type="1">
+<li>推论： 有以下推论：（不需交换！）
+<ol type="1">
+<li>x 自伴 <span class="math inline">\(\iff \sigma(x) \subset \mathbb{R}\)</span></li>
+<li>x 酉元 $(x) D $</li>
+<li>x 为正元 <span class="math inline">\(\iff \sigma(x) \subset \mathbb{R}^+ \cup {0}\)</span></li>
+<li>x 为投影元 <span class="math inline">\(\iff \sigma(x) \subset \{0,1\}\)</span></li>
+</ol></li>
+<li>自伴元正负部分解的存在唯一性</li>
+<li>正元的平方根的存在唯一性</li>
+<li>Cor：<span class="math inline">\(C^*\)</span>代数中任意元总能写成四个酉元的线性组合，或者四个正元的线性组合</li>
+<li>单的<span class="math inline">\(C^*\)</span>同态 $$ 保距离和谱集，即 $|(x) | = |x|,; ((x)) = (x) $ <span style="float: right;color:#a0a0a0;font-size:80%;">------ 2021.11.18 L11</span></li>
+<li><span class="math inline">\(C^*\)</span>同态的像为闭集，即为<span class="math inline">\(C^*\)</span>子代数</li>
+</ol></li>
+<li><p>Hilbert 空间上算子空间<span class="math inline">\(B(H)\)</span></p>
+<ol type="1">
+<li>自伴算子</li>
+<li>$T B(H),; T = ( T<sup><em>)^{},;  = (T^</em>)</sup>{} $</li>
+<li>T 可逆 $ T $ 在 H 中稠密，且 $,; s.t.; |Tx| |x| ; x H $ Cor: $T, T^* $ 均下有界，则 T 可逆 <!--TODO：证明！--></li>
+</ol></li>
+<li><p>态（state）：范 1 正泛函</p>
+<ol type="1">
+<li><p>注意自伴线性泛函不一定有界！但正线性泛函一定有界</p></li>
+<li><p>$$ 自伴 <span class="math inline">\(\iff \varphi(x) \in \mathbb{R} \; \forall x\)</span> 自伴</p></li>
+<li><p>对自伴且有界的 $,; || = {(x) : x^*=x, |x| } $</p></li>
+<li><p>正泛函可以达范，事实上 <span class="math inline">\(\varphi\)</span> 为正泛函 $ $ 连续且 $ ||= () $ <span style="float: right;color:#a0a0a0;font-size:80%;">------ 2021.12.02 L12</span></p>
+<ul>
+<li>从而 <span class="math inline">\(\varphi\)</span> 为态 $ $ 连续且 $ ||= () = 1 $</li>
+</ul></li>
+<li><p>态空间 $S(A) $ 为 <span class="math inline">\(A^*\)</span> 闭单位球的 $W* $ 闭凸子集</p></li>
+<li><p>用态可以确定谱集： $x A, (x), S(A), s.t. (x) = $</p>
+<ol type="1">
+<li>这也说明态可以确定元的信息（GNS 构造的前提！）, 即</li>
+</ol>
+<ol type="a">
+<li><p>$x=0 (x)=0 ; S(A) $</p></li>
+<li><p>$x  (x)  ; S(A) $</p></li>
+<li><p>$x  (x)  ; S(A) $</p></li>
+<li><p>$x 正规 S(A), |x|=|(x)| $</p></li>
+</ol></li>
+</ol></li>
+<li><p>GNS 构造（Gelfand–Naimark–Segal construction）</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Gelfand%E2%80%93Naimark%E2%80%93Segal_construction">Wiki</a> 上给的描述方式有点不一样，可以看看</p>
+</blockquote>
+<ol type="1">
+<li>准备工作：</li>
+</ol>
+<ul>
+<li>Cauchy-Schwarz 不等式：对正泛函<span class="math inline">\(\varphi\)</span>成立<span class="math inline">\(| \varphi(x^*y) |^2 \leqslant \varphi(x^*x) \varphi(y^*y)\)</span></li>
+<li><span class="math inline">\(\mathcal{L}_{\varphi} := \{x \in A : \varphi(x^*x) = 0 \}\)</span> 为 A 中的闭左理想
+<ul>
+<li><span class="math inline">\(\varphi(x^*y) = 0 \Leftrightarrow x\; or\; y \in \mathcal{L}_{\varphi}\)</span> （由 Cauchy 不等式显见）</li>
+</ul></li>
+<li><span class="math inline">\(H_{\varphi}^0 := A / \mathcal{L}_{\varphi}\)</span>，定义（半）内积<span class="math inline">\(&lt;[x], [y]&gt; = \varphi(y^*x)\)</span>，从而<span class="math inline">\(H_{\varphi}^0\)</span>为内积空间。<span class="math inline">\(H_{\varphi}\)</span>为 <span class="math inline">\(H_{\varphi}^0\)</span> 的完备化，为 Hilbert 空间。</li>
+<li><span class="math inline">\(H_{\varphi}\)</span>上的左作用算子：<span class="math inline">\(T_x: H_{\varphi}^0 \to H_{\varphi}^0,\; T_x([y]) = [xy]\)</span>，再自然延拓到 <span class="math inline">\(H_{\varphi}\)</span> 上。</li>
+</ul>
+<ol type="1">
+<li>简单版本：</li>
+</ol>
+<ul>
+<li><span class="math inline">\(\Phi : A \to B(H_{\varphi}),\; \Phi(x) = T_x\)</span>为 C *同态</li>
+</ul>
+<ol type="1">
+<li>复杂版本：<span style="float: right;color:#a0a0a0;font-size:80%;">------ 2021.12.09 L13</span></li>
+</ol>
+<ul>
+<li>一族 Hilbert 空间的直和：取可数项非零的元素。直和空间也为 Hilbert 空间，其上的有界线性泛函$T_{} <span class="math inline">\(也用直和来定义，注意所有\)</span>T_{}$需要一致有界。</li>
+<li><span class="math inline">\(\Phi : A \to B(\bigoplus\limits_{\varphi \in S(A)} H_{\varphi}),\; \Phi(x) = \bigoplus\limits_{\varphi \in S(A)} T_x^{\varphi}\)</span>为 C *同构（直和保证了单射）</li>
+<li>对于可分<span class="math inline">\(C^*\)</span>代数 A，可以直接找到一个恰当的<span class="math inline">\(\varphi\)</span>，使得<span class="math inline">\(\Phi : A \to B(H_{\varphi}),\; \Phi(x) = T_x\)</span>为<span class="math inline">\(C^*\)</span>同构</li>
+</ul></li>
+<li><p>非单位<span class="math inline">\(C^*\)</span>代数</p>
+<ul>
+<li>单位化：存在且唯一！
+<ul>
+<li>构造与证明。范数：<span class="math inline">\(\|(x,a)\| = \sup\limits_{y \in A,\; \|y\| \leqslant 1} \|xy+ay\|\)</span></li>
+</ul></li>
+<li>谱 <span style="float: right;color:#a0a0a0;font-size:80%;">------ 2021.12.16 L14</span></li>
+<li>Gelfand 变换为满的<span class="math inline">\(C^*\)</span>同构
+<ul>
+<li>证明：从单位化的结果压回来</li>
+</ul></li>
+<li>连续泛函演算：加条件<span class="math inline">\(f(0)=0\)</span>即可</li>
+<li>逼近单位元：用网来定义
+<ul>
+<li>任意非单位<span class="math inline">\(C^*\)</span>代数有逼近单位元（实际上取的是所有模长不大于 1 的正元）</li>
+<li>对于单位<span class="math inline">\(C^*\)</span>代数也有逼近单位元：取单位元即可</li>
+<li>Cor: <span class="math inline">\(C^*\)</span>代数的闭理想均有逼近单位元，从而关于<span class="math inline">\(*\)</span>运算封闭，因此</li>
+<li>Cor: <span class="math inline">\(C^*\)</span>代数的闭理想即其<span class="math inline">\(C^*\)</span>子代数</li>
+<li>在可分情况下将网改进为一个序列，则可推出有限维<span class="math inline">\(C^*\)</span>代数必定有单位元</li>
+</ul></li>
+</ul></li>
+<li><p>有限维 <span class="math inline">\(C^*\)</span> 代数的表示 <span style="float: right;color:#a0a0a0;font-size:80%;">------ 2021.12.23 L15</span></p>
+<!--TODO：整理--></li>
+<li><p><span class="math inline">\(C^*\)</span> 与 Kaplansky 问题 <span style="float: right;color:#a0a0a0;font-size:80%;">------ 2021.12.25 L16</span></p>
+<!--TODO：看网课--></li>
+</ol>
+<h2 id="个人的一点点吐槽">个人的一点点吐槽</h2>
+<ol type="1">
+<li>感觉证明同构这样的事情做得很多，方法无外乎证明单满然后两个方向都连续
+<ol type="1">
+<li>一般难点在于证明满射</li>
+<li>已知 $f: A B $ 连续，若 A 紧，B 为 Hausdorff 空间，则 <span class="math inline">\(f\)</span> 为同胚</li>
+</ol></li>
+</ol>
+<blockquote>
+<p>Updated at 2021/12/28 09:40</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    <div>
+        
+        <div style="text-align:center;color: #ccc;font-size:14px;">-----------------------<span style="margin: 0 10px;">如有留言，请联系 <a href="mailto:ljk5403@outlook.com">ljk5403@outlook.com</a></span>-----------------------</div>
+        
+    </div>
+</div>
+
+      
+    </div>
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/11/18/Video_Stabilization_or_Deshake/" rel="prev" title="视频抖动修复 Video Stabilization or Deshake">
+      <i class="fa fa-chevron-left"></i> 视频抖动修复 Video Stabilization or Deshake
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/05/04/%E7%AE%80%E5%8D%95%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E8%80%B3%E7%9F%B3%E7%97%87/" rel="next" title="简单记录一次耳石症">
+      简单记录一次耳石症 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E5%87%BD%E6%95%B0%E4%B8%8E-banach-%E4%BB%A3%E6%95%B0--%E5%A4%A7%E7%BA%B2"><span class="nav-number">1.</span> <span class="nav-text">抽象函数与 Banach 代数--大纲</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#part1-banach-%E4%BB%A3%E6%95%B0"><span class="nav-number">1.1.</span> <span class="nav-text">Part1 Banach 代数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#part-2-c%E4%BB%A3%E6%95%B0"><span class="nav-number">1.2.</span> <span class="nav-text">Part 2 \(C^*\)代数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E7%9A%84%E4%B8%80%E7%82%B9%E7%82%B9%E5%90%90%E6%A7%BD"><span class="nav-number">1.3.</span> <span class="nav-text">个人的一点点吐槽</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Andy Lee</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://hamiltonhuaji.github.io/" title="https:&#x2F;&#x2F;hamiltonhuaji.github.io&#x2F;" rel="noopener" target="_blank">HamiltonHuaji</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Andy Lee</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

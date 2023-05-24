@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Notes for Singular integrals and differentiability properties of functions">
+<meta property="og:url" content="http://yoursite.com/2023/05/23/Notes_for_Singular_integrals_and_differentiability_properties_of_functions/index.html">
+<meta property="og:site_name" content="To Infinity and Beyond">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-05-23T12:57:50.000Z">
+<meta property="article:modified_time" content="2023-05-24T02:02:15.875Z">
+<meta property="article:author" content="Andy Lee">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2023/05/23/Notes_for_Singular_integrals_and_differentiability_properties_of_functions/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>Notes for Singular integrals and differentiability properties of functions | To Infinity and Beyond</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">To Infinity and Beyond</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+      
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/05/23/Notes_for_Singular_integrals_and_differentiability_properties_of_functions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Andy Lee">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="To Infinity and Beyond">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Notes for Singular integrals and differentiability properties of functions
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-05-23 20:57:50" itemprop="dateCreated datePublished" datetime="2023-05-23T20:57:50+08:00">2023-05-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-05-24 10:02:15" itemprop="dateModified" datetime="2023-05-24T10:02:15+08:00">2023-05-24</time>
+              </span>
+
+          
+            <span id="/2023/05/23/Notes_for_Singular_integrals_and_differentiability_properties_of_functions/" class="post-meta-item leancloud_visitors" data-flag-title="Notes for Singular integrals and differentiability properties of functions" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p> <span id="more"></span></p>
+<p>Singular integrals and differentiability properties of functions-Elias M. Stein - Princeton University Press (1970)</p>
+<h2 id="section">1-1</h2>
+<p>The most important theorem: Hardy Littlewood Maximal function Inequality.</p>
+<p>Calderón-Zygmund Decomposition</p>
+<h2 id="section-1">2-2</h2>
+<p>Thm 1:</p>
+<p>Condition (b): <span class="math display">\[
+|\nabla K(x)| \leq B/|x|^{n+1} \qquad \forall x \neq 0
+\]</span> Proof Steps of weak 1-1: 1. Calderon-Zygmund decomposition. The good function can be controled easily by T is weak 2-2. 2. The obstacle is the bad function, which is 0 in the "small set" <span class="math inline">\(F\)</span>, and integration is 0 in any cube <span class="math inline">\(Q_k\)</span>. Decompose <span class="math inline">\(b\)</span> to each of these cube <span class="math inline">\(Q_i\)</span> as <span class="math inline">\(b_i\)</span> . Considering any <span class="math inline">\(x\in F\)</span>, we can modify the convolution <span class="math inline">\(T(f)\)</span> by a constant times <span class="math inline">\(\int b_j(x)\)</span> . 3. Use Mean value thm, and by <strong>porportional fact</strong>, we get 4. Marcinkiewicz integral 5. We get weak 1-1 !</p>
+<h2 id="section-2">2-3</h2>
+<p>Comparing to Thm with Condition (b'), which is <span class="math display">\[
+\int_{|x|\geq2|y|} |K(x-y)-K(x)|dx\leq B&#39; \qquad |y|&gt; 0
+\]</span> Consider slightly bigger cubes <span class="math inline">\(Q_j^*\)</span> which share the same center <span class="math inline">\(y^j\)</span> with cube <span class="math inline">\(Q_j\)</span>, but exapnd its diameter <span class="math inline">\(2n^{\frac{1}{2}}\)</span> times.</p>
+<blockquote>
+<p>Just because we have the <span class="math inline">\(|x|\geq2|y|\)</span> in condition (b')</p>
+</blockquote>
+<p>By Fubini we can evaluate <span class="math inline">\(\int_{Q_j}\leq\int_{Q_j^*}\)</span> with condition (b'), and get to (15) in the original proof.</p>
+<p><strong>Think: what is the relation between (b) and (b')?</strong></p>
+<p>Now also change the condition (a) <span class="math display">\[
+|\hat{K}(x)|\leq B
+\]</span> to condition (a') <span class="math display">\[
+|K(x)| \leq B|x|^{-n}
+\]</span> ???</p>
+<p>We try to get Thm 2: Suppose the kernel <span class="math inline">\(K(x)\)</span> satisfies the conditions</p>
+<p><span class="math display">\[
+\begin{align}
+&amp;|K(x)| \leq B|x|^{-n} \qquad &amp;|x|&gt;0 \\
+&amp; \int_{|x|\geq2|y|} |K(x-y)-K(x)|dx\leq B \qquad &amp;|y|&gt;0
+\end{align}
+\]</span> &gt; then second line is called a "regularity property", for it discribe some kind of smoothness</p>
+<p>and the cancellation property <span class="math display">\[
+\int_{R_1&lt;|x|&lt;R_2} K(x)dx=0 \qquad 0&lt;R_1&lt;R_2&lt;\infty
+\]</span> For <span class="math inline">\(f\in L^p(\mathbb{R}^n),\; 1&lt;p&lt;\infty\)</span> , let <span class="math display">\[
+T_\varepsilon(f)(x)= \int_{|y|\geq \varepsilon}f(x-y)K(y)dy
+\]</span> then we have <span class="math display">\[
+\|T_\varepsilon(f)\|_p \leq A_p \|f\|_p
+\]</span> with <span class="math inline">\(A_p\)</span> independent of <span class="math inline">\(f\)</span> and <span class="math inline">\(\varepsilon\)</span> . And <span class="math inline">\(\forall f\in L^p(\mathbb{R}^n),\; 1&lt;p&lt;\infty\)</span>, we have <span class="math display">\[
+\lim_{\varepsilon \to 0}T_\varepsilon(f) =: T(f)
+\]</span> exists in <span class="math inline">\(L^p\)</span> norm. The operator <span class="math inline">\(T\)</span> so defined also satisfies the inequality above.</p>
+<p>Steps of proof: 1. We take Thm1 as granted, and the modification of condition(b') as granted; 2. We show that if we truncated the operator <span class="math inline">\(K\)</span> to some <span class="math inline">\(K_\varepsilon\)</span> , then we have a Lemma(in 2-3.3) that <span class="math inline">\(K_\varepsilon \in L^2\)</span> , and <span class="math display">\[\sup_{y} |\hat{K}_\varepsilon(y)| \leq CB \qquad \forall \varepsilon &gt;0\]</span> where <span class="math inline">\(C\)</span> depends only on the dimension <span class="math inline">\(n\)</span>. - the proof of lemma is some kind of tricky: firstly we do only for <span class="math inline">\(K_1\)</span> - Then we - - 3. the <span class="math inline">\(K_\varepsilon \in L^2\)</span> and fixed <span class="math inline">\(C\)</span> give us the condition (a) in Thm1, so we can just use it to obtain a uniform <span class="math inline">\(L^p\)</span> bound for <span class="math inline">\(T_\varepsilon\)</span> ; 4. For the existance of limit, we first consider smooth function with compactly support: seperate <span class="math inline">\(T_\varepsilon(f)\)</span> to <span class="math inline">\(\int_{|y|&gt;1}\)</span> and <span class="math inline">\(\int_{1 \geq |y|\geq \varepsilon}\)</span> , the first part is fixed and is a <span class="math inline">\(L^p\)</span> function, modify the second part with <span class="math inline">\(f_1(x)\)</span> times the cancellation property integral, then by Mean Value Thm we get it has a limit; 5. For arbitrary <span class="math inline">\(f\in L^p(\mathbb{R}^n)\)</span> , we use the approximation by smooth function with compactly support. The approximation is in norm, so by the inequality <span class="math inline">\(\|T_\varepsilon(f)\|_p \leq A_p \|f\|_p\)</span> , the leftover can be dropped; 6. So finally the limiting poerator T is well defined, and by taking limit on both sides of the inequality <span class="math inline">\(\|T_\varepsilon(f)\|_p \leq A_p \|f\|_p\)</span> we get inequality <span class="math inline">\(\|T(f)\|_p \leq A_p \|f\|_p\)</span> . Finished!</p>
+<h3 id="operator-topology">Operator topology</h3>
+<p>https://en.wikipedia.org/wiki/Operator_topologies</p>
+<h1 id="section-3">2-4</h1>
+<blockquote>
+<p>2023/05/16- 2023/05/22 meeting 2023/05/23</p>
+</blockquote>
+<p>singular integral operators which commute with dilations, and also with translations.</p>
+<p>commute with dilations: homogeneous of degree -n</p>
+<p>commute with transformations: T can be realized in terms of a multiplier <span class="math inline">\(m\)</span>, s.t. <span class="math inline">\(T(f)\hat{} = \hat{f} \cdot m\)</span></p>
+<p>So we know that any singular integral operators which commute with dilations and translations will fall into the situation mentioned in following Theorem 3:</p>
+<p>Theorem 3: Let <span class="math inline">\(\Omega\)</span> be homogeneous of degree 0, and suppose that <span class="math inline">\(\Omega\)</span> satisfies this cancellation property</p>
+<p><span class="math display">\[
+\int_{S^{n-1}} \Omega(x) d\sigma = 0
+\]</span></p>
+<p>and the smoothness property <span class="math display">\[
+\text{let } \omega(\delta) = \sup_{|x-x&#39;|\leq \delta,\; |x|=|x&#39;|=1} \int_0^1 \frac{\omega(\delta) d\delta}{\delta} &lt; \infty
+\]</span> then for <span class="math inline">\(1&lt;p&lt;\infty\)</span>, <span class="math inline">\(f\in L^p(\mathbb{R}^n)\)</span>, let <span class="math display">\[
+T_\varepsilon (f) (x) = \int_{|y|\geq \varepsilon} \frac{\Omega(y)}{|y|^n}f(x-y) dy 
+\]</span> (a) Then there exists a bound <span class="math inline">\(A_p\)</span> independent of <span class="math inline">\(f\)</span> or <span class="math inline">\(\varepsilon\)</span> , so that <span class="math display">\[
+\|T_\varepsilon(f)\|_p \leq A_p \|f\|_p
+\]</span> (b) The limit of <span class="math inline">\(T_\varepsilon(f)\)</span> exists in <span class="math inline">\(L^p\)</span> norm, and by defining <span class="math inline">\(T(f) = \lim_{\varepsilon \to 0} T_\varepsilon(f)\)</span>, we have <span class="math display">\[
+\|T(f)\|_p \leq A_p \|f\|_p
+\]</span> (c) If <span class="math inline">\(f\in L^2(\mathbb{R}^n)\)</span>, then the Fourier transforms of <span class="math inline">\(f\)</span> and <span class="math inline">\(T(f)\)</span> are related by <span class="math inline">\((Tf)\hat{} (x) = m(x) \hat{f}(x)\)</span>, where <span class="math inline">\(m\)</span> is a homogeneous function of degree 0. We can write out the explicit form of <span class="math inline">\(m\)</span> (....).</p>
+<h4 id="cauchy-principal-value">Cauchy principal value:</h4>
+<p>Actually it is a tempered distribution. https://en.wikipedia.org/wiki/Cauchy_principal_value#Distribution_theory</p>
+<p>If we change the way to choose end point, what will we have?</p>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    <div>
+        
+        <div style="text-align:center;color: #ccc;font-size:14px;">-----------------------<span style="margin: 0 10px;">如有留言，请联系 <a href="mailto:ljk5403@outlook.com">ljk5403@outlook.com</a></span>-----------------------</div>
+        
+    </div>
+</div>
+
+      
+    </div>
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/10/14/1001LakeBarney/" rel="prev" title="10/01/2022 Birding at Lake Barney">
+      <i class="fa fa-chevron-left"></i> 10/01/2022 Birding at Lake Barney
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">1-1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">2-2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">2-3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#operator-topology"><span class="nav-number">3.1.</span> <span class="nav-text">Operator topology</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number"></span> <span class="nav-text">2-4</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cauchy-principal-value"><span class="nav-number">0.0.1.</span> <span class="nav-text">Cauchy principal value:</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Andy Lee</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://hamiltonhuaji.github.io/" title="https:&#x2F;&#x2F;hamiltonhuaji.github.io&#x2F;" rel="noopener" target="_blank">HamiltonHuaji</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Andy Lee</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
